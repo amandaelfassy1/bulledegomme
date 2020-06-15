@@ -1,8 +1,6 @@
 <?php require ('partials/header.php'); ?>
 <?php require 'partials/head_assets.php'; ?>
-
 <?php require ('partials/menu.php'); ?>
-
 <?php if(isset($_SESSION['messages'])): ?>
     <div>
         <?php foreach($_SESSION['messages'] as $message): ?>
@@ -24,6 +22,7 @@
                 </tr>
             <?php endforeach; ?>
         </table>
+        <button> <a href="index.php?controller=users&action=new"> Ajouter un utilisateur</a></button>
     </div>
 </div>
 

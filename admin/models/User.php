@@ -32,10 +32,12 @@ function deleteUser($id)
 function addUser($informations){
 
     $db= dbConnect();
-    $query = $db->prepare("INSERT INTO users (name, description) VALUES( :name, :description)");
+    $query = $db->prepare("INSERT INTO users (last_name, first_name, email, password) VALUES( :last_name, :first_name, :email, :password)");
     $result = $query->execute([
-        'name' => $informations["name"],
-        'description' => $informations["description"]
+        'last_name' => $informations["last_name"],
+        'first_name' => $informations["first_name"],
+        'email' => $informations["email"],
+        'password' => $informations["password"]
     ]);
     if($result && isset($_FILES['image']['tmp_name'])){
         $albumId = $db->lastInsertId();
@@ -55,10 +57,12 @@ function addUser($informations){
 function updateUser($id, $informations){
 
     $db= dbConnect();
-    $query = $db->prepare("UPDATE users SET name=?, description=? WHERE id =?");
+    $query = $db->prepare("UPDATE users SET last_name=?, first_name=?, email=?, password=? WHERE id =?");
     $result = $query->execute([
-        $informations["name"],
-        $informations["description"],
+        $informations["last_name"],
+        $informations["first_name"],
+        $informations["email"],
+        $informations["password"],
         $id,
     ]);
     return $result;

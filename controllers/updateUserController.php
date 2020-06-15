@@ -3,7 +3,6 @@ require_once 'models/Category.php';
 require_once 'models/User.php';
 $pageTitle = 'Modifie ton profile ! ';
 $categories = getCategories();
-var_dump($_SESSION['user']);
 
 if($_GET['action'] == 'editUser'){
 
@@ -22,9 +21,9 @@ if($_GET['action'] == 'editUser'){
 
         }
         else{
-            var_dump($_SESSION['user']);
 
             $user = updateUser($_GET['id'], $_POST);
+
             if($user){
                 $_SESSION['messages'][] = 'Utilisateur mis à jour !';
             }
@@ -38,7 +37,7 @@ if($_GET['action'] == 'editUser'){
 
     else {
             if (!isset($_SESSION['old_inputs'])) {
-                $product = getUser($_GET['id']);
+                $user = getUser($_GET['id']);
             }
         }
 

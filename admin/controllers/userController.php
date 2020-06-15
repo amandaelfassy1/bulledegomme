@@ -12,9 +12,9 @@ elseif($_GET['action'] == 'new'){
 
 elseif($_GET['action'] == 'add'){
 
-    if(empty($_POST['name']) ){
+    if(empty($_POST['last_name']) ){
 
-        if(empty($_POST['name'])){
+        if(empty($_POST['last_name'])){
             $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
         }
 
@@ -39,14 +39,14 @@ elseif($_GET['action'] == 'edit'){
 
     if(!empty($_POST))
 
-        if(empty($_POST['name']) ){
+        if(empty($_POST['last_name']) ){
 
-            if(empty($_POST['name'])){
+            if(empty($_POST['last_name'])){
                 $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
             }
 
             $_SESSION['old_inputs'] = $_POST;
-            header('Location:index.php?controller=categories&action=edit&id='.$_GET['id']);
+            header('Location:index.php?controller=users&action=edit&id='.$_GET['id']);
             exit;
         }
         else{

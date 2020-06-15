@@ -33,7 +33,7 @@
              </div>
              <br>
 
-             <button class="btnPrimary">Valider</button>
+             <button class="log">Valider</button>
          </form>
      </div>
 

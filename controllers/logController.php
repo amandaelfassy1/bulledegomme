@@ -12,12 +12,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'disconnect'){
     exit;
 }
 
-if(isset($_GET['action']) && $_GET['action'] == 'update')
-{
-
-}
-
-
 
 if(!empty($_POST)){
     if(empty($_POST['email']) || empty($_POST['password'])){
@@ -32,6 +26,7 @@ if(!empty($_POST)){
                 'id' => $user['id'],
                 'email' => $user['email'],
                 'first_name' => $user['first_name'],
+                'is_admin' => $user['is_admin'],
             ];
         }
         else{

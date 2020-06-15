@@ -4,6 +4,9 @@ require_once 'models/Category.php';
 $pageTitle="Inscris toi !";
 
 if(isset($_POST['forminscription'])){
+    $_POST['last_name']=htmlspecialchars($_POST['last_name']);
+    $_POST['first_name']=htmlspecialchars($_POST['first_name']);
+    $_POST['email']=htmlspecialchars($_POST['email']);
 
     if(!empty($_POST['forminscription'])) {
 

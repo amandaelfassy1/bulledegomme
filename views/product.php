@@ -36,14 +36,13 @@
      <div class="mini-images">
          <?php foreach($images as $image): ?>
              <?php if($selectedProduct['id'] == $image['products_id']): ?>
-                 <div class="child-image">
+         <div class="zoom">
+         <div class="child-image">
                      <img  src="./assets/images/<?= $image['name']; ?>" alt="<?= $image['name']; ?>">
                  </div>
              <?php endif; ?>
          <?php endforeach; ?>
+         </div>
      </div>
  </div>
-
-
-
  </style>

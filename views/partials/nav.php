@@ -1,7 +1,6 @@
 <header>
     <div class="header">
-        <a href="index.php" class="logo"<h3>BULLE <span>DEGOMME</span></h3>
-        </a>
+        <a href="index.php" class="logo"<h3>BULLE <span>DEGOMME</span></h3></a>
         <div class="header-right">
             <nav>
                 <ul>
@@ -22,8 +21,21 @@
                 </ul>
             </nav>
         </div>
+        <?php
+
+        if (isset($_SESSION['user']) && $_SESSION['user']['is_admin']==1)
+        {
+            echo '<li><a href="admin" >Admin</a></li>';
+        }
+        ?>
     </div>
 </header>
+
+
+
+
+
+
 
 <?php
 if(isset($_SESSION['flash'])){

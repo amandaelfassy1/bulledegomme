@@ -3,11 +3,13 @@
  <head><title>Homepage</title>
      <?php require 'partials/head_assets.php'; ?>
  </head>
+ <!--Securité faille XSS-->
  <body class="index-body">
- <div class="container-fluid">
-     <hr>
-         <h1>Inscris toi !</h1>
-         <hr>
+ <hr>
+ <h1>Inscrivez-vous !</h1>
+ <hr>
+ <div class="container-form">
+
      <div class="form">
      <form action="" method="post" enctype="multipart/form-data">
              <div class="row">
@@ -24,6 +26,7 @@
                  </div>
                  <div class="col-75">
                      <input type="text" id="last_name" name="last_name" placeholder="Your last name..">
+
                  </div>
              </div>
              <div class="row">
@@ -32,6 +35,7 @@
                  </div>
                  <div class="col-75">
                      <input type="text" id="email" name="email" placeholder="Your mail">
+
                  </div>
              </div>
              <div class="row">
@@ -40,6 +44,7 @@
                  </div>
                  <div class="col-75">
                      <input type="password" id="password" name="password" placeholder="Your password..">
+
                  </div>
              </div>
              <br>
@@ -51,8 +56,11 @@
 
      </div>
      <div class="connexion">
-         <p>Déjà membre ? Connectez-vous ! <button class="log"><a class="login" href="index.php?page=log">je me connecte</a> </button>  </p>
+         <p>Déjà membre ? Connectez-vous ! </p>
+         <button class="log"><a class="login" href="index.php?page=log">je me connecte</a> </button>
      </div>
+
+ </div>
  </div>
  </body>
  </html>

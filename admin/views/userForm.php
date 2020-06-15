@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="col-25">
-                <label for="year">Prenom :</label>
+                <label for="first_name">Prenom :</label>
             </div>
             <div class="col-75">
                 <input  type="text" name="first_name" id="first_name" value="<?= isset($_SESSION[
@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="col-25">
-                <label for="year">Mail :</label>
+                <label for="email">Mail :</label>
             </div>
             <div class="col-75">
                 <input  type="text" name="email" id="first_name" value="<?= isset($_SESSION[
@@ -43,10 +43,10 @@
         </div>
         <div class="row">
             <div class="col-25">
-                <label for="year">Mot de passe :</label>
+                <label for="password">Mot de passe :</label>
             </div>
             <div class="col-75">
-                <input  type="text" name="password" id="password" value="<?= isset($_SESSION[
+                <input  type="password" name="password" id="password" value="<?= isset($_SESSION[
                     'old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($user) ? $user['password']:''?>"
             </div>
         </div>

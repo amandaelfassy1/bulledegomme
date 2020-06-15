@@ -12,7 +12,7 @@
 <?php endif; ?>
 
     <div class="container">
-        <h2>Artistes </h2>
+        <h2>Produit </h2>
         <form action="index.php?controller=products&action=<?= isset($product) || (isset($_SESSION['old_inputs']) && $_GET['action'] == 'edit') ? 'edit&id='. $_GET['id'] : 'add' ?>" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-25">
