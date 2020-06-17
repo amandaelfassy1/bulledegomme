@@ -20,13 +20,16 @@ img {
 .flash.success {
     background-color: darkseagreen;
     color: white;
-    width: 20%;
+    text-align: center;
+    width: 100%;
 }
 
 .flash.error {
     background-color: indianred;
     color: white;
-    width: 20%;
+    width: 100%;
+    text-align: center;
+
 }
 
 /******************Fontawesome*********/
@@ -111,84 +114,42 @@ h1 a{
     padding: 10px;
 
 }
-
-/*************************************************HEADER MENU ******************************/
-header:after{
-    content: '';
-    clear: both;
-    display: table;
-}
-.header {
-    background-color: #F8F3E9;
-    padding: 20px 10px;
+img{
     width: 100%;
-    margin-bottom: 30px;
 }
-
-/* Style the header links */
-.header a {
-    float: left;
-    color: black;
-    text-align: center;
-    padding: 20px;
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-bottom: 2px solid transparent;
-    transition-duration: .3s;
-
+/*************************************************HEADER MENU ******************************/
+header {
+    width: 100%;
 }
-
-/* Style the logo link  */
-.header > a.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: black;
-}
-.header a:hover {
+header a:hover {
     color: #e0ac1c;
     transition-duration: .3s;
 }
 .fa, .fas:hover{
     color: #e0ac1c;
     transition-duration: .3s;
-
-}
-.header-right {
-    float: right;
-}
-.header-right:after{
-    content:'';
-    clear: both;
-    display: table;
 }
 
-img{
-    width: 100%;
-}
 header nav ul > li{
     position: relative;
-    margin: 0;
     padding: 0;
     float: left;
     line-height: 60px;
     text-align: center;
+    margin: 0 20px;
 }
 header nav ul{
     list-style: none;
 }
 header nav ul > li > ul {
     display: none;
-
 }
 header nav ul > li ul{
     position: absolute;
     right: 0;
     background: #fff;
+    text-transform: uppercase;
 }
-
 header nav ul > li ul  > li {
     display: block;
     float:none !important;
@@ -197,7 +158,6 @@ header nav ul > li ul  > li {
     padding:0;
     text-align: center;
 }
-
 header nav ul > li ul > li a {
     display: block !important;
     float:none !important;
@@ -206,6 +166,165 @@ header nav ul > li ul > li a {
 }
 header nav ul > li:hover ul{
     display: block;
+}
+header nav ul > li:hover a{
+color: black;
+}
+header nav ul > li ul > li a:hover {
+    color: #e0ac1c;
+}
+nav,
+main {
+    max-width: 1310px;
+    margin: auto;
+    padding: 36px;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+.trigger {
+    position: fixed;
+    top: 27px;
+    right: 30px;
+    width: 18px;
+    height: 16px;
+    z-index: 1;
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+}
+.trigger:checked + nav > :nth-child(2) {
+    transform: none;
+}
+.trigger:checked + nav > :nth-child(2) > .cross {
+    opacity: 1;
+}
+
+/* Logo nav */
+nav > :first-child {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav > :first-child>a {
+    color: black;
+}
+
+/* Menu nav */
+nav > :nth-child(2) {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+nav > :nth-last-child(2) > a {
+    margin: 0 20px;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+nav > :nth-last-child(2) > a:hover{
+    color: #e0ac1c;
+}
+.cross {
+    display: none;
+    width: 18px;
+    transition: opacity 0.6s 0.5s ease-in-out;
+    opacity: 0;
+}
+
+/* Pictos nav */
+nav > :last-child {
+    display: flex;
+    align-items: center;
+}
+nav > :last-child > a {
+    width: 18px;
+    margin: 0 14px;
+}
+nav > :last-child > a:last-child {
+    display: none;
+}
+
+/* Contenu principal */
+main {
+    padding-top: 128px;
+}
+
+
+@media (max-width: 720px) {
+    .trigger {
+        display: block;
+    }
+    nav {
+        padding: 20px 24px;
+    }
+    nav > :first-child {
+        width: 116px;
+    }
+    /* Menu nav */
+    nav > :nth-child(2) {
+        /* dessiner la version mobile du menu */
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #F8F3E9;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 24px;
+        transform: translate(100%);
+        transition: transform 0.5s ease-in;
+    }
+    nav > :nth-child(2) > a {
+        margin: 20px;
+    }
+    nav > :nth-last-child(2) > a:last-child {
+        display: block;
+        position: fixed;
+        top: 24px;
+        right: 34px;
+        margin: 0;
+    }
+    /* Pictos nav */
+    nav > :last-child > a {
+        margin: 9px;
+    }
+    nav > :last-child > a:nth-child(3) {
+        display: none;
+    }
+    nav > :last-child > a:last-child {
+        display: block;
+    }
+    main {
+        padding-top: 97px;
+    }
+}
+
+
+@keyframes menu {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    40% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.logo{
+    font-size: 20px;
 }
 
 
@@ -292,6 +411,9 @@ button.shop{
 .opacity1 div:hover img {
     opacity: .5;
 }
+
+
+
 /************************************************POUR LES FORMULAIRES INSCRIPTION ET CONNEXTION*********************************************************************************/
 form{
     padding: 10px;
@@ -508,6 +630,7 @@ span{
 .btn a{
     color: white;
 }
+/******************FICHE PRODUIT***********/
 .payement{
     float: right;
 }
@@ -521,6 +644,35 @@ span{
     width: 700px;
     margin: auto;
     margin-top: 30px;
+}
+.zoom {
+    display: flex;
+}
+.zoom img:hover {
+    width:400px;
+    height:400px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .fiche-produit {
+        width: 100%;
+        margin:30px;
+    }
+    .content-card {
+        width: 100%;
+        margin:30px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .fiche-produit {
+        width: 100%;
+        margin:30px;
+    }
+    .content-card {
+        width: 100%;
+        margin:30px;
+    }
 }
 
 #container{
@@ -618,11 +770,7 @@ h2{
     text-align: center;
 }
 
-.zoom {
-    display: flex;
-}
-.zoom img:hover {
-    width:400px;
-    height:400px;
-}
+
+
+
 

@@ -1,4 +1,5 @@
 <?php require 'partials/head_assets.php'; ?>
+<hr>
 <div class="cart">
     <h2>Mon panier</h2>
 </div>
