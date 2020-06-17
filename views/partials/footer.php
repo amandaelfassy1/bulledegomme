@@ -43,14 +43,11 @@
                     <h3>BULLE <span>DEGOMME</span></h3>
 
                     <p class="footer-links">
-                        <a href="index.php">Mention légales</a>
+                        <a href="index.php">Mentions légales</a>
                         |
                         <a href="#">CVG</a>
                         |
                         <a href="#">Confidentialité</a>
-
-
-
                     </p>
                 </li>
             </ul>

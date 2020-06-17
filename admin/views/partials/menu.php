@@ -9,5 +9,8 @@
         <li>
             <a href="index.php?controller=users&action=list">Gestion des utilisateurs</a>
         </li>
+        <li>
+            <a href="index.php?controller=orders&action=list">Gestion des commandes</a>
+        </li>
     </ul>
 </div>

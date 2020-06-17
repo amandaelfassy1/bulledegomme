@@ -46,8 +46,7 @@
                 <label for="password">Mot de passe :</label>
             </div>
             <div class="col-75">
-                <input  type="password" name="password" id="password" value="<?= isset($_SESSION[
-                    'old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($user) ? $user['password']:''?>"
+                <input  type="password" name="password" id="password" value="">
             </div>
         </div>
         <div class="row">

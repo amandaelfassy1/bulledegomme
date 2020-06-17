@@ -33,8 +33,9 @@
              </div>
              <br>
 
-             <button class="log">Valider</button>
-         </form>
+             <div class="row">
+                 <input type="submit" name='forminscription' value="Valider">
+             </div>         </form>
      </div>
 
 

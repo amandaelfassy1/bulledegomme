@@ -11,7 +11,6 @@ if (session_status() == PHP_SESSION_NONE) {
 define('MAX_QUANTIY', 10);
 
 require('helpers.php');
-
 //routeur du site
 //appel un controleur selon la valeur de $_GET['page'] (la page demandée)
 //si pas de $_GET['page'] ou que $_GET['page'] ne correspond à rien de voulu, affichage de la page index

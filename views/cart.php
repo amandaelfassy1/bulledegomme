@@ -25,12 +25,17 @@
                             <button class="suppr" type="submit">update</button>
                         </form>
                     </td>
-                    <td><?= $i * $product['price']?></td>
+                    <td><?= $_SESSION['cart'][$product['id']] * $product['price']?></td>
                     <td><a class="suppr" href="index.php?page=cart&action=retirerPanier&product_id=<?= $product['id']; ?>"><i class="fa fa-times"></i></a></td>
                 </tr>
+
             <?php endforeach; ?>
         </table>
         <div class="payement">
+            <p>Total : <?php $total = 0; foreach($products as $product):
+                $total = $total + $_SESSION['cart'][$product['id']] * $product['price'];
+                             endforeach; echo $total; ?>
+            </p>
             <a href="index.php?page=order&action=deliveryInformation" class="btnPrimary">Commander</a>
         </div>
 </div>

@@ -13,7 +13,6 @@ img {
     width: 100%;
 }
 
-
 /******************ERREUR*********/
 .flash { padding: 20px;}
 
@@ -60,13 +59,11 @@ img {
 .fa-heart i:hover{
     color: red;
 }
-
 .list{
     display: inline;
     padding: 30px;
     font-size: 20px;
 }
-
 /*************************************************PAGE D'ACCUEIL*******************/
 .grid-cell {
     /* Sets column count */
@@ -92,14 +89,7 @@ img {
     text-align: center;
 }
 
-button.shop{
-    height: 100px;
-    background-color: white ;
-    border: none;
-}
-.bandeau{
-    position: relative;
-}
+
 .shop a{
     color: black;
     font-weight: bold;
@@ -116,9 +106,8 @@ h1 a{
     color: white;
 }
 .grid-cellule {
-    /* Sets column count */
-    width: calc(100% / 3); /* calc() method */
-    width: 50%; /* percentage method */
+    width: calc(100% / 3);
+    width: 50%;
     padding: 10px;
 
 }
@@ -148,6 +137,8 @@ header:after{
     text-transform: uppercase;
     font-weight: bold;
     border-bottom: 2px solid transparent;
+    transition-duration: .3s;
+
 }
 
 /* Style the logo link  */
@@ -155,13 +146,16 @@ header:after{
     font-size: 25px;
     font-weight: bold;
     color: black;
-
-
 }
 .header a:hover {
-    border-bottom: 2px solid black;
+    color: #e0ac1c;
+    transition-duration: .3s;
 }
+.fa, .fas:hover{
+    color: #e0ac1c;
+    transition-duration: .3s;
 
+}
 .header-right {
     float: right;
 }
@@ -213,6 +207,23 @@ header nav ul > li ul > li a {
 header nav ul > li:hover ul{
     display: block;
 }
+
+
+/***********************************************BANNIERE*******************************************************/
+
+.banniere{
+    z-index:0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+}
+button.shop{
+    height: 100px;
+    background-color: white ;
+    border: none;
+}
+
 /***********************************************CONTAINER DES PPRODUITS*******************************************************/
 .container {
     margin-left: 200px;
@@ -229,23 +240,18 @@ header nav ul > li:hover ul{
 
 }
 
-
-/* Float four columns side by side */
 .column {
     float: left;
     width: 100%;
     padding: 10px 10px;
 }
 
-
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Style the counter cards */
 .card {
     padding: 16px;
     text-align: center;
@@ -260,9 +266,10 @@ header nav ul > li:hover ul{
 .product-links a {
     display: inline-block;
     margin-left: 5px;
-    color: #0A0A48;
+    color: black;
     transition: 0.3s;
     font-size: 19px;
+    transition-duration: .3s;
 }
 
 .product{
@@ -271,11 +278,20 @@ header nav ul > li:hover ul{
 }
 .product a:hover {
     color: #fbb72c;
+    transition-duration: .3s;
+
 }
 .product a{
-    color: #0A0A48;
+    color: black;
 }
-
+.opacity1 div img {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.opacity1 div:hover img {
+    opacity: .5;
+}
 /************************************************POUR LES FORMULAIRES INSCRIPTION ET CONNEXTION*********************************************************************************/
 form{
     padding: 10px;
@@ -309,7 +325,6 @@ a, a:hover, a:visited, a:active
     text-decoration:none;
 }
 
-
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -342,6 +357,14 @@ input[type=submit] {
     cursor: pointer;
     margin-top: 10px;
     width: 300px;
+    transition-duration: .3s;
+
+}
+input[type=submit]:hover{
+    background-color: #e0ac1c;
+    color: black;
+    transition-duration: .3s;
+
 }
 
 .row{
@@ -489,7 +512,6 @@ span{
     float: right;
 }
 
-
 .product-image{
     margin: 15px 15px 15px 15px;
 }
@@ -524,39 +546,21 @@ h3{
 .child-image{
     padding: 10px 10px 0 0px;
 }
-.fiche-produit{
-}
-
-
-
-
-.banniere{
-    z-index:0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin: auto;
-}
 
 .absolute{
     position: absolute;
     float: right;
 }
 
-
-
 h4{
     background-color: #2cb8b647;
     padding: 15px;
     text-align: center;
-
 }
-
 
 li{
     display: inline;
 }
-
 /************************************************SHOPPING CARD****************/
 th{
     margin: 10px;
@@ -594,6 +598,7 @@ h2{
     text-align: center;
     transition-duration: .3s;
     border: none;
+    margin-top: 10px;
 }
 
 .btnPrimary:hover{
@@ -613,7 +618,6 @@ h2{
     text-align: center;
 }
 
-
 .zoom {
     display: flex;
 }
@@ -621,6 +625,4 @@ h2{
     width:400px;
     height:400px;
 }
-
-
 

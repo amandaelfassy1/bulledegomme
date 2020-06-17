@@ -16,9 +16,12 @@
         <table>
             <?php foreach($users as $user): ?>
                 <tr>
+                    <th><?=  ($user['id']) ?> </th>
                     <th><?=  htmlspecialchars($user['last_name']) ?> </th>
-                    <th><a href="index.php?controller=users&action=delete&id=<?= $user['id'] ?>"> Supprimer</a></th>
-                    <th><a href="index.php?controller=users&action=edit&id=<?= $user['id'] ?>"> Modifier</a></th>
+                    <th> <?=  htmlspecialchars($user['first_name']) ?></a></th>
+                    <th> <?=  htmlspecialchars($user['email']) ?></a></th>
+                    <th><a class="suppr" href="index.php?controller=users&action=delete&id=<?= $user['id'] ?>"> Supprimer</a></th>
+                    <th><a class="modif" href="index.php?controller=users&action=edit&id=<?= $user['id'] ?>"> Modifier</a></th>
                 </tr>
             <?php endforeach; ?>
         </table>

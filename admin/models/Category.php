@@ -55,7 +55,7 @@ function addCategory($informations){
 function updateCategory($id, $informations){
 
     $db= dbConnect();
-    $query = $db->prepare("UPDATE albums SET name=?, description=? WHERE id =?");
+    $query = $db->prepare("UPDATE categories SET name=?, description=? WHERE id =?");
     $result = $query->execute([
         $informations["name"],
         $informations["description"],

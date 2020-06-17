@@ -59,11 +59,12 @@ elseif($_GET['action'] == 'edit'){
         else{
 
             $result = updateProduct($_GET['id'], $_POST);
+
             if($result){
-                $_SESSION['messages'][] = 'Produit mis à jour !';
+                $_SESSION['flash']['success'] = 'Produit mis à jour !';
             }
             else{
-                $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
+                $_SESSION['flash']['error'] = 'Erreur lors de la mise à jour... :(';
             }
             header('Location:index.php?controller=products&action=list');
             exit;

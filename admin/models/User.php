@@ -37,7 +37,7 @@ function addUser($informations){
         'last_name' => $informations["last_name"],
         'first_name' => $informations["first_name"],
         'email' => $informations["email"],
-        'password' => $informations["password"]
+        'password' => password_hash($informations["password"], PASSWORD_DEFAULT)
     ]);
     if($result && isset($_FILES['image']['tmp_name'])){
         $albumId = $db->lastInsertId();

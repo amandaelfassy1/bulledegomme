@@ -1,19 +1,46 @@
 body{
     margin: 0;
     font-family: Arial;
-    background-color: #EEE9E1;
 }
+
+/******************ERREUR*********/
+.flash {
+    padding: 20px;
+    text-align: center;
+}
+
+.flash.success {
+    background-color: darkseagreen;
+    color: white;
+    width: 100%;
+}
+
+.flash.error {
+    background-color: indianred;
+    color: white;
+    width: 100%;
+}
+/*******************************/
 h1{
     color: white;
     text-align: center;
 }
-header{
-    background-color: #2cb8b647;
-    height: 100px;
+.header {
+    overflow: hidden;
+    background-color: #F8F3E9;
+    padding: 20px 10px;
 }
-header h1{
+
+header h1 {
     padding: 20px;
     line-height: 45px;
+    color: black;
+}
+.suppr{
+    color: red;
+}
+.modif{
+    color: dodgerblue;
 }
 h3{
     color: black;
@@ -46,7 +73,7 @@ label {
 
 /* Style the submit button */
 input[type=submit] {
-    background-color: darkblue;
+    background-color: dodgerblue;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -92,7 +119,7 @@ input[type=submit] {
     width: 300px;
     float: left;
     height: 100%;
-    background-color: #2cb8b647;
+    background-color: #F8F3E9;
 
 }
 
@@ -145,14 +172,14 @@ table {
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
-    background: #eee;
+    background: #F8F3E9;
 }
 th {
     color: black;
     font-weight: bold;
 }
 td, th {
-    padding: 10px 10px 10px 10px;
+    padding: 20px 20px 20px 20px;
     border-bottom: 1px solid dimgrey;
     text-align: center;
 }
@@ -203,7 +230,7 @@ button {
     text-decoration: none;
     display: flex;
     font-size: 16px;
-    background-color: black;
+    background-color: forestgreen;
     border-radius: 5px;
     border: none;
     margin: auto;
@@ -216,6 +243,6 @@ button hover{
     color: #eeeeee;
 }
 .content{
-    margin: 100px 50px 50px 50px;
+    text-align: center;
 }
 

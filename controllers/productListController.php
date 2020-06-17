@@ -8,12 +8,8 @@ require_once 'models/Product.php';
 //postulat de base : aucune catégorie n'a été séléctionnée
 $selectedCategory = false;
 
-if($selectedCategory == false){
-    $pageTitle = 'Tous les produits';
-}
-else{
-    $pageTitle = $selectedCategory['name'];
-};
+
+
 $categories = getCategories();
 
 //si ID de catégorie demandé
@@ -34,12 +30,15 @@ if(isset($_GET['category_id'])){
         header('Location:index.php');
         exit;
     }
+    $pageTitle = $selectedCategory['name'];
+
     //si ce test est passé, alors $selectedCategory est une catégorie existante
 
     $products = getProductsByCategoryId($_GET['category_id']);
 }
 else{
   $products = getProducts();
+    $pageTitle = 'Tous les produits';
 }
 
 

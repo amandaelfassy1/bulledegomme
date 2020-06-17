@@ -53,7 +53,7 @@ elseif($_GET['action'] == 'edit'){
 
             $result = updateUser($_GET['id'], $_POST);
             if($result){
-                $_SESSION['messages'][] = 'categorie mise à jour !';
+                $_SESSION['messages'][] = 'Utilisateur mis à jour !';
             }
             else{
                 $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
@@ -73,6 +73,9 @@ elseif($_GET['action'] == 'edit'){
 elseif($_GET['action'] == 'delete'){
     if(isset($_GET['id'])){
         $result = deleteUser(   $_GET['id']    );
+        header('Location:index.php?controller=users&action=list');
+        exit;
+
     }
     else{
         header('Location:index.php?controller=users&action=list');

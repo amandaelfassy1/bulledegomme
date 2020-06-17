@@ -53,10 +53,10 @@ elseif($_GET['action'] == 'edit'){
 
             $result = updateCategory($_GET['id'], $_POST);
             if($result){
-                $_SESSION['messages'][] = 'categorie mise à jour !';
+                $_SESSION['flash']['success'] = 'categorie mise à jour !';
             }
             else{
-                $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
+                $_SESSION['flash']['error'] = 'Erreur lors de la mise à jour... :(';
             }
             header('Location:index.php?controller=categories&action=list');
             exit;
@@ -73,6 +73,8 @@ elseif($_GET['action'] == 'edit'){
 elseif($_GET['action'] == 'delete'){
     if(isset($_GET['id'])){
         $result = deleteCategory(   $_GET['id']    );
+        header('Location:index.php?controller=categories&action=list');
+        exit;
     }
     else{
         header('Location:index.php?controller=categories&action=list');

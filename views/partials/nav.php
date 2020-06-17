@@ -34,9 +34,6 @@
 
 
 
-
-
-
 <?php
 if(isset($_SESSION['flash'])){
     foreach($_SESSION['flash'] as $key => $flash) {

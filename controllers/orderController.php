@@ -22,6 +22,8 @@ if($_GET['action'] == 'newOrder') {
     if(isset($_SESSION['user'])){
 
         $return = addOrder();
+        //met a jour le stock du produit dans la table products
+        updateStockQuantity();
         header('Location: index.php?page=confirm&action=confirmOrder&status='.$return['status'].'&orderId='.$return['order_id']);
     } else {
         header('Location:index.php?page=sign');

@@ -72,7 +72,7 @@ function updateProduct($id, $informations){
         $informations["price"],
         $informations["category_id"],
         $informations["quantity"],
-        $id,
+        $id
     ]);
     return $result;
 }
