@@ -4,10 +4,13 @@ function addOrder ()
 {
     $db = dbConnect();
     // creation de la commande dans le system
-    $query = $db->prepare("INSERT INTO orders (user_id, delivery_address) VALUES( :user_id, :delivery_address )");
+    $query = $db->prepare("INSERT INTO orders (user_id, delivery_address, user_name, user_lastname ) VALUES( :user_id, :delivery_address, :user_name, :user_lastname)");
     $query->execute([
         'user_id' => $_SESSION["user"]["id"],
-        'delivery_address' => $_POST["delivery_address"]
+        'delivery_address' => $_POST["delivery_address"],
+        'user_name' => $_SESSION["user"]["first_name"],
+        'user_lastname' => $_SESSION["user"]["last_name"]
+
     ]);
     // récupération de l'id de la commande en question
     $orderId = $db->lastInsertId();

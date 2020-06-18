@@ -11,7 +11,7 @@
 
  <div>
      <hr>
-     <h1>Connecte toi !</h1>
+     <h1>Connectez-vous !</h1>
      <hr>
      <div class="form">
          <form action="" method="post" enctype="multipart/form-data">

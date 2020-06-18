@@ -628,7 +628,7 @@ span{
 .btn a{
     color: white;
 }
-/******************FICHE PRODUIT***********/
+/***********************************************FICHE PRODUIT*************************************/
 .payement{
     float: right;
 }
@@ -650,7 +650,11 @@ span{
     width:400px;
     height:400px;
 }
-
+.price{
+    margin: 10px ;
+    color: #e0ac1c;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 600px) {
     .fiche-produit {

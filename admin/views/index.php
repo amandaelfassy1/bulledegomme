@@ -3,4 +3,3 @@
 
 <?php require ('partials/menu.php'); ?>
 
-<h1>tableau de bord de l'admin</h1>

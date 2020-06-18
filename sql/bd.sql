@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 14 juin 2020 à 18:56
+-- Généré le :  jeu. 18 juin 2020 à 16:25
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -34,16 +34,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES
-(1, 'Asterix', 'fgetzt'),
-(2, 'Gaston Lagaffe', 'trhry'),
-(3, 'Lucky Luke', 'dfe'),
+(1, 'Asterix', ''),
+(2, 'Gaston Lagaffe', ''),
+(3, 'Lucky Luke', ''),
 (4, 'Spirou', ''),
 (5, 'Tintin', ''),
 (6, 'Boule & Bill', '');
@@ -51,23 +51,23 @@ INSERT INTO `categories` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `image`
+-- Structure de la table `images`
 --
 
-DROP TABLE IF EXISTS `image`;
-CREATE TABLE IF NOT EXISTS `image` (
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `products_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `products_image_id` (`products_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `image`
+-- Déchargement des données de la table `images`
 --
 
-INSERT INTO `image` (`id`, `name`, `products_id`) VALUES
+INSERT INTO `images` (`id`, `name`, `products_id`) VALUES
 (1, 'Spirou/Fanta1.PNG', 71),
 (2, 'Spirou/Fanta3.PNG', 71),
 (3, 'Spirou/Fanta2.PNG', 71),
@@ -107,7 +107,6 @@ INSERT INTO `image` (`id`, `name`, `products_id`) VALUES
 (37, 'LuckyLuke/Luke3.jpg', 29),
 (38, 'LuckyLuke/LuckyCharette2.jpg', 27),
 (39, 'LuckyLuke/LuckyCharette1.jpg', 27),
-(40, 'LuckyLuke/LuckyCharette3.jpg', 27),
 (41, 'Asterix/Agecanonix1.png', 15),
 (42, 'Asterix/Agecanonix2.png', 15),
 (43, 'Asterix/julescesar1.jpg', 59),
@@ -132,7 +131,6 @@ INSERT INTO `image` (`id`, `name`, `products_id`) VALUES
 (63, 'Asterix/Asterix&Obelix1.jpg', 3),
 (64, 'Asterix/Asterix&Obelix4.jpg', 3),
 (65, 'Asterix/Asterix&Obelix2.jpg', 3),
-(66, 'Asterix/Asterix&Obelix3.jpg', 3),
 (67, 'GastonLagaffe/Gaston&Marsupilami1.jpg', 13),
 (68, 'GastonLagaffe/Gaston&Marsupilami2.jpg', 13),
 (69, 'GastonLagaffe/Gaston&Marsupilami3.jpg', 13),
@@ -199,7 +197,33 @@ INSERT INTO `image` (`id`, `name`, `products_id`) VALUES
 (130, 'Boule&Bill/Bill&Pouf3.jpg', 49),
 (131, 'Boule&Bill/VehiculeBoule1.jpg', 54),
 (132, 'Boule&Bill/VehiculeBoule2.jpg', 54),
-(133, 'Boule&Bill/VehiculeBoule3.jpg', 54);
+(133, 'Boule&Bill/VehiculeBoule3.jpg', 54),
+(135, 'Boule&bill/mereBoule1.jpg', 53),
+(136, 'Boule&bill/mereBoule2.jpg', 53),
+(137, 'Boule&bill/mereBoule3.jpg', 53),
+(138, 'Tintin/Haddock1.jpg', 40),
+(139, 'Tintin/Haddock2.jpg', 40),
+(140, 'Spirou/ZorglubGang1.jpg', 70),
+(142, 'Spirou/ZorglubGang3.jpg', 70),
+(143, 'LuckyLuke/Jane1.jpg', 24),
+(144, 'LuckyLuke/Jane2.jpg', 24),
+(145, 'LuckyLuke/minglifoo1.jpg', 66),
+(146, 'LuckyLuke/minglifoo2.jpg', 66),
+(147, 'LuckyLuke/minglifoo3.jpg', 66),
+(148, 'Spirou/Spirou1.jpg', 33),
+(149, 'Spirou/Spirou2.jpg', 33),
+(150, 'Spirou/Spirou3.jpg', 33),
+(151, 'LuckyLuke/MaDalton1.jpg', 30),
+(152, 'LuckyLuke/MaDalton2.jpg', 30),
+(153, 'LuckyLuke/MaDalton3.jpg', 30),
+(154, 'Tintin/Tournesol1.jpg', 48),
+(155, 'Tintin/Tournesol2.jpg', 48),
+(156, 'Boule&Bill/Pereenerve1.jpg', 63),
+(157, 'Boule&Bill/Pereenerve2.jpg', 63),
+(158, 'Tintin/Nestor1.jpg', 41),
+(159, 'Tintin/Nestor2.jpg', 41),
+(160, 'Tintin/Tournesol&Haddock1.jpg', 47),
+(161, 'Tintin/Tournesol&Haddock2.jpg', 47);
 
 -- --------------------------------------------------------
 
@@ -213,32 +237,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `user_id` int(11) NOT NULL,
   `delivery_address` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_name` varchar(255) NOT NULL,
+  `user_lastname` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `delivery_address`, `date`) VALUES
-(3, 21, 'oezairhg', '2020-06-10 21:47:00'),
-(4, 21, 'zerg', '2020-06-10 21:47:32'),
-(5, 21, 'hhjkh', '2020-06-10 22:19:52'),
-(6, 21, 'jdkejeofkef', '2020-06-10 22:24:25'),
-(7, 21, 'ca marche ', '2020-06-11 00:18:31'),
-(8, 21, 'aa', '2020-06-11 00:35:57'),
-(9, 21, 'aa', '2020-06-11 00:38:26'),
-(10, 21, 'aa', '2020-06-11 00:40:29'),
-(11, 21, 'super!', '2020-06-11 11:14:36'),
-(12, 21, 'oo', '2020-06-11 11:21:59'),
-(13, 21, 'yoo', '2020-06-11 11:51:52'),
-(14, 21, 'ca marche ?', '2020-06-11 11:53:43'),
-(15, 21, 'okay', '2020-06-11 14:19:19'),
-(16, 21, 'oaky', '2020-06-12 20:21:42'),
-(17, 21, 'zz', '2020-06-12 20:24:25'),
-(18, 21, 'essaiee', '2020-06-12 20:32:42'),
-(19, 21, 'yess', '2020-06-14 00:08:37'),
-(20, 21, 'okay', '2020-06-14 13:04:33');
+INSERT INTO `orders` (`id`, `user_id`, `delivery_address`, `date`, `user_name`, `user_lastname`) VALUES
+(43, 52, 'aa', '2020-06-18 17:49:06', 'maximus', ''),
+(44, 52, 'aa', '2020-06-18 17:50:54', 'maximus', 'maximus'),
+(45, 53, 'yess', '2020-06-18 18:13:08', 'test', 'test'),
+(46, 54, '33 avenue Victor Hugo', '2020-06-18 18:23:37', 'user', 'user');
 
 -- --------------------------------------------------------
 
@@ -255,44 +267,21 @@ CREATE TABLE IF NOT EXISTS `order_products` (
   `order_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `orders_order_id` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `order_products`
 --
 
 INSERT INTO `order_products` (`id`, `name`, `price`, `quantity`, `order_id`) VALUES
-(7, 'Prunelle', 131, 4, 3),
-(8, 'Jane', 179, 5, 3),
-(9, 'Gaston & Jeanne', 170, 1, 3),
-(10, 'Prunelle', 131, 4, 4),
-(11, 'Jane', 179, 5, 4),
-(12, 'Gaston & Jeanne', 170, 1, 4),
-(13, 'Spirou', 17, 2, 5),
-(14, 'Prunelle', 131, 1, 6),
-(15, 'Gaston & le Taxi', 325, 3, 6),
-(16, 'Mlle Jeanne', 145, 1, 7),
-(17, 'Spirou le groom vert', 17, 1, 8),
-(18, 'Bugs Bunny', 17, 2, 9),
-(19, 'Jane', 179, 1, 10),
-(20, 'Prunelle', 131, 1, 11),
-(21, 'Joe Dalton', 435, 3, 11),
-(22, 'Prunelle', 131, 1, 12),
-(23, 'Joe Dalton', 435, 3, 12),
-(24, 'Asterix & Obelix', 339, 1, 12),
-(25, 'Asterix & Obelix', 339, 2, 13),
-(26, 'Asterix & Obelix', 339, 3, 14),
-(27, 'Joe Dalton', 435, 3, 15),
-(28, 'Cam & Leon', 17, 2, 16),
-(29, 'Cam & Leon', 17, 2, 17),
-(30, 'Nestor au plumeau', 17, 1, 17),
-(31, 'Boule & Bill en baignade', 150, 1, 17),
-(32, 'Cam & Leon', 17, 2, 18),
-(33, 'Nestor au plumeau', 17, 1, 18),
-(34, 'Boule & Bill en baignade', 150, 1, 18),
-(35, 'Tintin Cow Boy', 17, 1, 18),
-(36, 'Asterix & Obelix', 339, 2, 19),
-(37, 'Mlle Jeanne', 145, 3, 20);
+(65, 'Spirou le groom vert', 17, 3, 40),
+(66, 'Mlle Jeanne', 145, 1, 41),
+(67, 'Asterix', 435, 2, 42),
+(68, 'Asterix', 435, 3, 43),
+(69, 'Rantanplan', 324, 1, 44),
+(70, 'Spirou le groom vert', 17, 1, 45),
+(71, 'Spirou le groom vert', 17, 1, 46),
+(72, 'Spirou hommage Lucky Luke', 17, 1, 46);
 
 -- --------------------------------------------------------
 
@@ -307,28 +296,28 @@ CREATE TABLE IF NOT EXISTS `products` (
   `image` varchar(255) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
   `short_description` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` float NOT NULL,
   `category_id` int(11) DEFAULT NULL,
   `quantity` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `image`, `description`, `short_description`, `price`, `category_id`, `quantity`) VALUES
-(1, 'Abraracourcix', 'Asterix/Abraracourcix.jpg ', 'Get the lastest and trending web development project\'s source code, first see preview if you need then get the code.\r\n                                        ', '                    ', 245, 1, 6),
-(3, 'Asterix & Obelix', 'Asterix/Asterix&Obelix.jpg', 'Voici une statuette de Astérix et Obélix, issue de l\'univers d\'Asterix, un personnage supplémentaire pour compléter la galerie issue de l\'univers du plus fameux Gaulois ! Vous en avez rêvé et Leblon-Delienne l\'a fait !', 'Cereal reese travis scott', 339, 1, 3),
+(1, 'Abraracourcix', 'Asterix/Abraracourcix.jpg ', 'Get the lastest and trending web development project\'s source code, first see preview if you need then get the code.\r\n                                                                                                                                         ', '', 245, 1, 10),
+(3, 'Asterix & Obelix', 'Asterix/Asterix&Obelix.jpg', 'Voici une statuette de Astérix et Obélix, issue de l\'univers d\'Asterix, un personnage supplémentaire pour compléter la galerie issue de l\'univers du plus fameux Gaulois ! Vous en avez rêvé et Leblon-Delienne l\'a fait !                    ', '                    ', 339, 1, 10),
 (4, 'Asterix', 'Asterix/asterix.jpg', 'Sur cette figurine, Astérix lit l\'une de ses meilleures aventures : \"Astérix chez les Bretons\".Figurine CollectoysAnnée : 2018Matière : résineDimensions : 21 x 14 x 23,5 cm', 'azaear', 435, 1, 5),
-(5, 'Bonemine', 'Asterix/Bonemine.jpg', 'Retrouvez Bonemine en figurine sur CollectorBD !Elle est en train de coudre, assise sur un tabouret. Le sourcil levé, elle écoute attentivement ce qui se passe autour d\'elle', 'zeaztr', 220, 1, 5),
+(5, 'Bonemine', 'Asterix/Bonemine.jpg', 'Retrouvez Bonemine en figurine sur CollectorBD !Elle est en train de coudre, assise sur un tabouret. Le sourcil levé, elle écoute attentivement ce qui se passe autour d\'elle', 'zeaztr', 220, 1, 10),
 (6, 'Legionnaire', 'Asterix/Legionnaire.jpg', 'Une superbe figurine d\'une vingtaine de centimètres de haut, en résine. Cette magnifique statuette représente les deux héros tels qu\'ils sont dessinés sur la couverture du mythique album : Astérix légionnaire.', 'gfshf', 320, 1, 5),
 (7, 'Obelix', 'Asterix/obelix.jpg', 'Comme il est tombé dans le chaudron de potion magique quand il était petit, cette pile d\'albums des aventures des Gaulois n\'est pas plus lourde qu\'un menhir !', '', 123, 1, 5),
 (8, 'Agecanonix', 'Asterix/vieuxAsteric.jpg', 'D\'après l\'univers d\'Astérix et Obélix par Uderzo et Goscinny.  Hauteur : 12 cm.  Tirage limité à 350 exemplaires.', '', 226, 1, 5),
 (9, 'Agent Longtarin', 'GastonLagaffe/AgentLongtarin.jpg', 'Son air aussi hagard que goguenard nous laisse présager le pire : un PV est sûrement prêt a être servi ! Mais la panoplie de L\'Agent Longtarin ne saurait être complète sans son parcmètre.', '', 330, 2, 5),
-(10, 'Mlle Jeanne', 'GastonLagaffe/Cactus.jpg', 'Nous connaissions Gaston pour ses nombreux déguisements et notamment celui du cactus mais vous, Mlle Jeanne, c\'est une première !', 'Sculpteur : Pascal Rodier <br>\r\nHauteur : 20 cm <br>\r\nMatière : résine <br>\r\n Année d\'édition : 2007', 145, 2, 5),
-(11, 'Prunelle', 'GastonLagaffe/Prunellee.jpg', 'Qui d\'autre que Gaston pourrait être sommé de rappliquer par Prunelle de cette façon ?! Qui veut parier que Gaston a encore eu une idée géniale ?', 'Sculpteur : Pascal Rodier Hauteur : 21 cm Matière : Résine Année d\'édition : 2005 Tirage : 750 exemplaires', 131, 2, 5),
+(10, 'Mlle Jeanne', 'GastonLagaffe/Cactus.jpg', 'Nous connaissions Gaston pour ses nombreux déguisements et notamment celui du cactus mais vous, Mlle Jeanne, c\'est une première !', 'Sculpteur : Pascal Rodier <br>\r\nHauteur : 20 cm <br>\r\nMatière : résine <br>\r\n Année d\'édition : 2007', 145, 2, 3),
+(11, 'Prunelle', 'GastonLagaffe/Prunellee.jpg', 'Qui d\'autre que Gaston pourrait être sommé de rappliquer par Prunelle de cette façon ?! Qui veut parier que Gaston a encore eu une idée géniale ?', 'Sculpteur : Pascal Rodier Hauteur : 21 cm Matière : Résine Année d\'édition : 2005 Tirage : 750 exemplaires', 131, 2, 3),
 (13, 'Gaston & Marsupilami', 'GastonLagaffe/Gaston&Marsupilami.jpg', ' Gaston, aurais-tu confondu ton lit avec celui des bébés Marsupilami ? Cela nous donnerait presque envie d\'aller roupiller dans ce joli nid de plumes, très douillet, surtout en présence des bébés Marsupilami !', ' Figurine en résine - scène prestige Figurine montée sur un socle ovale noir. Taille : 31cm.*', 139, 2, 5),
 (14, 'Panoramix', 'Asterix/Panoramix.jpg', 'Retrouvez le grand Panoramix, druide vénérable du Village, détenteur du savoir, et notamment du secret de la potion magique dont il a lui-même créé la recette !', '', 234, 1, 5),
 (15, 'Agecanonix', 'Asterix/Agecanonix.png', 'D\'après l\'univers d\'Asterix d\'Uderzo et Goscinny.  Sculpteur : Pascal Rodier Auteur(s) : Uderzo et Goscinny Hauteur : 18 cm Matière : Résine  Tirage : 350 ex. accompagnés d\'un certificat.', '', 136, 1, 5),
@@ -342,36 +331,33 @@ INSERT INTO `products` (`id`, `name`, `image`, `description`, `short_description
 (23, 'Les Dalton à cheval', 'LuckyLuke/DaltonCheval.jpg', 'Cette statuette en résine inspirée d\'une illustration de 1963 pour un album de coloriage paru aux Editions Dupuis a été créée par Fariboles Productions en partenariat avec La Marque Zone (LMZ Collection).', 'Dimensions de la figurine : 37 x 17 x 30cm Dimensions de la boîte : 34 x 48 x 16cm Matière : résine', 170, 3, 5),
 (24, 'Jane', 'LuckyLuke/Jane.jpg', 'Même si elle n\'apparaît que très peu dans la série, Calamity Jane a marqué les esprits. Redécouvrez ce grand personnage des aventures de Lucky Luke avec cette superbe figurine !', 'Année : 2019 <br>Fabricant : Fariboles <br>Editeur : Zédibulle Hauteur : 25 cm', 179, 3, 5),
 (25, 'Joe Dalton', 'LuckyLuke/JoeDalton.jpg', 'Joe Dalton est représenté ici comme s\'échappant d\'une pile d\'albums, un revolver à la main ! Quel mauvais coup a-t-il encore préparé ?', 'Hauteur : 5 cm\r\nLargeur : 5,5 cm\r\nFigurine en plomb et peinte à la main', 435, 3, 5),
-(26, 'Lucky Luke', 'LuckyLuke/lucky.jpg', 'Un tonneau, la rue déserte d\'une ville fantôme du Far West, un soleil de plomb et très certainement quelques tireurs embusqués çà et là bien décidés à avoir la peau de \"L\'homme qui tire deux fois plus vite que son ombre\"', 'Un tonneau, la rue déserte d\'une ville fantôme du Far West, un soleil de plomb et très certainement quelques tireurs embusqués çà et là bien décidés à avoir la peau de \"L\'homme qui tire deux fois plus vite que son ombre\"', 172, 3, 5),
-(27, 'Luky Luke ', 'LuckyLuke/LuckyCharette.jpg', 'Format : 42 x 17 cm\r\nMatière : Métal (socle en bois)\r\nFigurine Pixi peinte à la main\r\n\r\nTirage limité à 130 exemplaires numérotés accompagnés de leur certificat d\'authenticité', 'onePiece shanks & Luffy', 324, 3, 5),
+(27, 'Rantanplan', 'LuckyLuke/LuckyCharette.jpg', 'Avec son énorme truffe noire et son air aussi benêt qu\'adorable, on en oublierait presque qu\'il est\r\ncensé être le redoutable chien de garde du pénitencier !', '', 324, 3, 4),
 (28, 'Lucky Luke', 'LuckyLuke/LuckyLuke.jpg', 'Lucky Luke bondit sur Jolly Jumper, qui l\'attendait patiemment près du point d\'attache, et s\'apprête à se mettre en route vers de nouvelles aventures.', '', 17, 3, 0),
 (29, 'Lucky Luke', 'LuckyLuke/Luke.jpg', 'Statuette en résine inspirée de l\'aventure de Lucky Luke \"Sur la piste des Dalton\" (1960).Inspirée de l\'oeuvre de Morris & Goscinny, cette statuette a été créée par Fariboles Productions.', '', 17, 3, 5),
-(30, 'Ma Dalton', 'LuckyLuke/MaDalton.jpg', 'Oui c\'est bien elle ! La redoutable génitrice des non moins redoutables Daltons ! Elle leur a généreusement légué les pires aspects de sa propre personne : la méchanceté, la convoitise, la sournoiserie ! ', '', 17, 3, 5),
-(31, 'Mathias Bones le croque mort', 'LuckyLuke/MathiasBones.jpg', 'Vêtu de son solennel costume noir et tenant son ruban mètre à la verticale, les yeux fermés et esquissant un léger sourire, il se délecte déjà de la bonne odeur de la mort, du costume en sapin et de la terre recouvrant un cercueil tout juste refermé.', '', 17, 3, 5),
-(32, 'Rantanplan', 'LuckyLuke/Rantanplan.jpg', 'Plus bête que Rantanplan, plus méchant que Joe Dalton, est-ce possible ? Evidemment non : nous tenons-là deux champions ! On ne sait pas lequel, du coup de masse perfide ou du coup de langue servile, va partir en premier... ', '', 17, 3, 5),
-(33, 'Gaston Lagaffe', 'Spirou/Spirou.jpg', '', '', 17, 4, 5),
+(30, 'Ma Dalton', 'LuckyLuke/MaDalton.jpg', 'Oui c\'est bien elle ! La redoutable génitrice des non moins redoutables Daltons ! Elle leur a généreusement légué les pires aspects de sa propre personne : la méchanceté, la convoitise, la sournoiserie ! ', '', 145, 3, 5),
+(31, 'Mathias Bones', 'LuckyLuke/MathiasBones.jpg', 'Vêtu de son solennel costume noir et tenant son ruban mètre à la verticale, les yeux fermés et esquissant un léger sourire, il se délecte déjà de la bonne odeur de la mort, du costume en sapin et de la terre recouvrant un cercueil tout juste refermé.', '', 170, 3, 5),
+(32, 'Rantanplan', 'LuckyLuke/Rantanplan.jpg', 'Plus bête que Rantanplan, plus méchant que Joe Dalton, est-ce possible ? Evidemment non : nous tenons-là deux champions ! On ne sait pas lequel, du coup de masse perfide ou du coup de langue servile, va partir en premier... ', '', 110, 3, 5),
+(33, 'Spirou', 'Spirou/Spirou.jpg', 'Retrouvez le plus célèbre groom de la bande dessinée sur ce superbe buste en trois dimensions ! Le visuel utilisé pour la création de ce buste est issu du numéro 51 \"Alerte aux Zorkons\", de Yoann et Vehlmann.', '', 49, 4, 5),
 (34, 'Cam & Leon', 'Spirou/cameleon.jpg', 'Le Marsupilami, ce cher petit animal, a disparu... Que ne feraient Spirou, Fantasio et Spip pour le retrouver, puis l\'extirper des griffes de l\'affreux Zabaglione, directeur de cirque cupide et voleur ?', '', 17, 4, 5),
-(35, 'Spirou le groom vert', 'Spirou/SpirouVert.jpg', 'Le \"bel\" uniforme fourni par les boches ? Il en a déjà fait une loque ! Godfermillard de nom de djue ! Il ne sera pas dit que le petit groom va se laisser piétiner par la botte allemande! Tudju ! Un sacré castard, ce Spirou !', '', 17, 4, 5),
-(36, 'Spirou hommage Lucky Luke', 'Spirou/SpirouLuckyLuck.jpg', 'Décidément Spirou est un personnage qui a la classe ! Tout lui va ! Habituellement tiré à quatre épingles, il s\'est déguisé en cow-boy pour une occasion toute particulière : fêter les 70 ans (oui , septante !!) de son pote Lucky Luke', '', 17, 4, 5),
+(35, 'Spirou le groom vert', 'Spirou/SpirouVert.jpg', 'Le \"bel\" uniforme fourni par les boches ? Il en a déjà fait une loque ! Godfermillard de nom de djue ! Il ne sera pas dit que le petit groom va se laisser piétiner par la botte allemande! Tudju ! Un sacré castard, ce Spirou !', '', 17, 4, 0),
+(36, 'Spirou hommage Lucky Luke', 'Spirou/SpirouLuckyLuck.jpg', 'Décidément Spirou est un personnage qui a la classe ! Tout lui va ! Habituellement tiré à quatre épingles, il s\'est déguisé en cow-boy pour une occasion toute particulière : fêter les 70 ans (oui , septante !!) de son pote Lucky Luke', '', 17, 4, 4),
 (37, 'Vertignasse', 'Spirou/Spirou&Fantasio.jpg', 'Mais de qui se moque-t-il ? Entre le Petit Spirou et son ami Vertignasse, c\'est “à la vie à la mort”, mais cela n\'empêche pas de garder un certain sens critique.', '', 17, 4, 5),
-(38, 'Spirou', 'Spirou/Zorglub.jpg', 'Génie mégalomane, méchant au bon coeur, inventeur surdoué tant dans le domaine des sciences que du langage, Zorglub s\'attire immanquablement les faveurs des lecteurs par ses échecs répétés dans sa conquête du monde', '', 17, 4, 5),
-(39, 'Les Dupondt', 'Tintin/dupondt.jpg', 'Quelle arrivée fracassante dans les aventures de Tintin ! Voyons Les Dupondt ce n\'est pas de cette manière que vous le retrouverez ce cher Tintin !', '', 17, 5, 5),
-(40, 'Bugs Bunny', 'Tintin/Haddock.jpg', 'Redécouvrez le Capitaine Haddock avec cette figurine de collection Moulinsart. On retrouve l\'uniforme du Capitaine : ce fameux col-roulé bleu, sa veste noire et sa casquette de marin qui ne le quittent jamais', '', 17, 5, 5),
-(41, 'Nestor au plumeau', 'Tintin/Nestor.jpg', 'Sur cette figurine, Nestor porte sa tenue rayée jaune et noire, tenue qu\'il a dès sa première apparition.', '', 17, 5, 5),
-(42, 'Tintin Cow Boy', 'Tintin/Tintin.jpg', 'Paré pour la grande aventure de l\'Ouest, Tintin tirera-t-il plus vite que son ombre ?<br>Matière : résine.<br>Format : 6 x 7 x 11,5 cm.', '', 17, 5, 5),
-(43, 'Tintin et Milou', 'Tintin/tintinAstronaute.jpg', 'Retrouvez Tintin et Milou dans leurs combinaisons spatiales grâce à cette superbe figurine. Fabriquée de manière artisanale, en France, par Fariboles, cette figurine représente les deux héros dans le respect des dessins d\'Hergé.', '', 17, 5, 5),
+(38, 'Spirou', 'Spirou/Zorglub.jpg', 'Génie mégalomane, méchant au bon coeur, inventeur surdoué tant dans le domaine des sciences que du langage, Zorglub s\'attire immanquablement les faveurs des lecteurs par ses échecs répétés dans sa conquête du monde', '', 177, 4, 5),
+(39, 'Les Dupondt', 'Tintin/dupondt.jpg', 'Quelle arrivée fracassante dans les aventures de Tintin ! Voyons Les Dupondt ce n\'est pas de cette manière que vous le retrouverez ce cher Tintin !', '', 230, 5, 5),
+(40, 'Capitaine Haddock', 'Tintin/Haddock.jpg', 'Redécouvrez le Capitaine Haddock avec cette figurine de collection Moulinsart. On retrouve l\'uniforme du Capitaine : ce fameux col-roulé bleu, sa veste noire et sa casquette de marin qui ne le quittent jamais', '', 17, 5, 5),
+(41, 'Nestor Plateau', 'Tintin/Nestor.jpg', 'Année d\'édition :2001<br>\r\nAuteur(s) :Hergé<br>\r\nHauteur :H 28 cm<br>\r\nMatière :Résine\r\n\r\n', '', 17, 5, 4),
 (44, 'Tintin en route !', 'Tintin/tintinEnRoute.jpg', 'Contrairement à son créateur, Tintin a voyagé partout dans le monde. Il a visité de nombreux pays tels que le Congo, la Chine, l\'Egypte, les Etats-Unis ou encore le Tibet et il est même allé jusque sur la Lune !', '', 17, 5, 5),
 (45, 'Tintin et Milou', 'Tintin/TintinMilou.jpg', 'Comme à son habitude, notre reporter est toujours prêt pour de nouvelles péripéties. Il revient tout juste de Chine pour repartir en Amazonie ! Mais nous ne vous en dirons pas plus...', '', 17, 5, 5),
-(46, 'Tintin et Milou dans la potiche', 'Tintin/tintinVase.jpg', 'Figurine de collection en résine Moulinsart: Tintin et Milou dans la potiche du Lotus bleu, collection \"Les icônes\". Livré en boîte, accompagné d’un certificat d’authenticité numéroté. Hauteur: 20cm.', '', 17, 5, 5),
-(47, 'SuperSaiyan', 'Tintin/Tournesol&Haddock.jpg', 'La figurine est en résine. Elle fait partie de la collection « Lune », de même que Tintin et Milou cosmonautes.', '', 17, 5, 5),
+(46, 'Tintin et Milou dans la potiche', 'Tintin/tintinVase.jpg', 'Figurine de collection en résine Moulinsart: Tintin et Milou dans la potiche du Lotus bleu, collection \"Les icônes\". Livré en boîte, accompagné d’un certificat d’authenticité numéroté. Hauteur: 20cm.', '', 170, 5, 5),
+(47, 'Haddock et Tournesol Lune', 'Tintin/Tournesol&Haddock.jpg', 'La figurine est en résine. Elle fait partie de la collection « Lune », de même que Tintin et Milou cosmonautes.', '', 17, 5, 5),
 (48, 'Tournesol', 'Tintin/Tournesol.jpg', 'Tournesol déambule en étudiant son pendule. Le guidera-t-il à travers l\'exposition du musée imaginaire des aventures de Tintin ?', '', 165, 5, 5),
 (49, 'Bill & Pouf', 'Boule&Bill/Bill&Pouf.jpg', 'Serait-ce une course des indiens contre les cow-boys ou Bill en voudrait-il à Pouf ?  Tirage limité à 40 exemplaires.', 'Matière : résine. <br>Format : 11,5 x 8 x 19 cm. <br>Caractéristiques : Modélisation 3D réalisée par David Arnould. Moulée, assemblée et peinte à la main.', 165, 6, 5),
 (50, 'Boule et Bill', 'Boule&Bill/Boule&Bil.jpg', 'Les meilleurs amis en pleine action !D\'après l\'univers de Boule & Bill par Roba  Leblon-Delienne  EAN : 3700677944559  H: 23 cm  1 500 exemplaires, en résine.', '', 165, 6, 5),
 (51, 'Caroline', 'Boule&Bill/Caroline.jpg', 'Mais qu\'ont encore fait Boule et Bill pour provoquer une telle hilarité ! Caroline la tortue de la famille, douce, rigolote, insomniaque et fan de bobsleigh, est follement amoureuse de Bill…', '', 165, 6, 5),
 (52, 'Boule & Bill à la neige', 'Boule&Bill/NeigeBoule.png', 'Cette statuette est une exclusivité La Marque Zone. Elle a été sculptée par Quentin Soubrouillard et réalisée par l\'atelier Phoenix Effect, en France.  Sortez moufles et bonnets et rejoignez Boule et Bill !', '', 150, 6, 5),
-(53, 'Boule & Bill à la pêche', 'Boule&Bill/boulePeche.jpg', '', '', 150, 6, 5),
+(53, 'La mère énervée', 'Boule&Bill/boulePeche.jpg', 'Qu\'ont fait encore les deux chenapans pour plonger une personne si douce et si aimante dans un tel état ? Cette pièce vient compléter la scène de la punition au coin.', '', 150, 6, 5),
 (54, 'Boule & Bill en voiture !', 'Boule&Bill/VehiculeBoule.jpg', 'Caisse à savon ?Caisse à roulettes ? Planches et roues de récup, clous, volant emprunté, freins douteux quand existants,  peinture à l’arrache. Quel gamin ne s’est pas bricolé le bolide de rêve, essayé en pleine rue à l’insu de l’autorité familiale ?', '', 150, 6, 5),
-(55, 'Boule & Bill en baignade', 'Boule&Bill/baignade.jpg', 'Une scène cocasse tirée de \"L\'album de famille de Boule et Bill\"  Figurine en résineHauteur : 24cm', '', 150, 6, 5),
+(55, 'La baignade !', 'Boule&Bill/baignade.jpg', 'Une scène cocasse tirée de \"L\'album de famille de Boule et Bill\"  Figurine en résineHauteur : 24cm', '', 150, 6, 5),
 (56, 'Boule & Bill punis', 'Boule&Bill/boulepunis.jpg', '', '', 150, 6, 5),
 (57, 'Tintin le sous-marin requin', 'Tintin/requin.jpg\r\n', 'Après \"La potiche\", c\'est au tour du \"Sous-marin requin\" de venir compléter la collection \"Les icônes\" de Moulinsart. Chaque pièce fonctionne bien entendu indépendamment.', '', 147, 5, 5),
 (58, 'Tintin et Milou a la maison', 'Tintin/Maison.jpg\r\n', 'Cette scène reproduit la case 14 de la planche 2 de L\'oreille cassée, 6ème album des Aventures de Tintin. \"Curieuse coïncidence, ne trouves-tu pas, Milou ?... Il s\'en moque : il dort. Eh bien ! Je vais l\'imiter\", déclare le journaliste.', '', 129, 5, 5),
@@ -379,15 +365,12 @@ INSERT INTO `products` (`id`, `name`, `image`, `description`, `short_description
 (60, 'Olibrius', 'Asterix/Olibrius.jpg\r\n', 'Olibrius, célèbre légionnaire romain, qui, de retour de sa première patrouille comprendra vite ce qu\'est la vie de légionnaire. A grands coups de gifles, son mot d\'ordre : fuir les Gaulois ', '', 1470, 1, 5),
 (61, 'Assurancetourix', 'Asterix/Assurancetourix.jpg', 'Assurancetourix est une figure importante, surtout en tant qu\'éternel souffre-douleur des habitants d\'un village !', '', 1470, 1, 5),
 (63, 'Père de Boule énervée', 'Boule&Bill/PereEnerve.jpg', '', '', 1470, 6, 5),
-(64, 'Le roi et les Schtroumpf', 'Boule&Bill/livre.jpg', '', '', 1470, 6, 5),
-(65, 'Lucky Luke', 'LuckyLuke/LuckyOmbre.jpg', 'Lucky Luke tire plus vite que son ombre\"', '', 1470, 3, 5),
 (66, 'Ming Li foo', 'LuckyLuke/minglifoo.jpg', 'La sculpture a été réalisée par Alban FICAT. Elle représente le savoureux personnage Ming Li Foo.', '', 1470, 3, 5),
 (67, 'Bill', 'Boule&Bill/bill.jpg', '', '', 1470, 6, 5),
-(68, 'Bill', 'Boule&Bill/boule&co.jpg', '', '', 1470, 6, 5),
-(69, 'Maire', 'Spirou/Maire.jpg', 'Chut, ne faites plus un bruit, vous risquerez d\'interrompre le maire de Champignac en Cambrousse en plein discours !*', '', 17, 4, 5),
+(69, 'Maire', 'Spirou/Maire.jpg', 'Chut, ne faites plus un bruit, vous risquerez d\'interrompre le maire de Champignac en Cambrousse en plein discours !*                    ', '                    ', 17, 4, 10),
 (70, 'L\'enlèvement', 'Spirou/ZorglubGang', '« L\'Enlèvement », est le second triptyque issu des aventures de Spirou & Fantasio par Jean-Claude Fournier. Cette somptueuse saynète est la fidèle reproduction en 3D d\'une case de la planche 11A de l\'album « Le Faiseur d\'or »', '', 1470, 4, 5),
 (71, 'Fantasio Hommage Lucky Luke', 'Spirou/FantasioLucky.png', 'Un petit mot de Raiarox:\r\n\"Cette pièce a été sculptée en Corse ! Pascal l\'a crée pendant ses congés ...le matin de bonne heure\r\n, et je sais pas pour vous ...mais moi je le ressens dans la pièce ! Du très grand Pascal !!! Merci à lui\r\n!\"', '', 17, 4, 5),
-(72, 'Dupilon', 'Spirou/Dupilon.jpg', 'Personnage secondaire de Spirou et Fantasio, Célestin Dupilon habite Champignac et est continuellement ivre.', '', 170, 4, 5);
+(72, 'Dupilon', 'Spirou/Dupilon.jpg', 'Personnage secondaire de Spirou et Fantasio, Célestin Dupilon habite Champignac et est continuellement ivre.                                                                                ', '                                                                                ', 171, 4, 10);
 
 -- --------------------------------------------------------
 
@@ -402,44 +385,36 @@ CREATE TABLE IF NOT EXISTS `users` (
   `first_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `is_admin` tinyint(1) DEFAULT NULL,
+  `is_admin` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `last_name`, `first_name`, `email`, `password`, `is_admin`) VALUES
-(11, 'ELFASSY', 'AMANDA', 'okaaa', '$argon2i$v=19$m=1024,t=2,p=2$UzlxdVJncWVPS3ozaEw5SA$bz+LxgK3p9/mZvibxGoq+HO0ELbM0FS34wSu+sf8ghw', NULL),
-(12, 'ok', 'ok', 'ok', '$argon2i$v=19$m=1024,t=2,p=2$eGxkejRWSEkuRHd0dDhHSQ$3Bi1/Frs/uzf5Ov9cYZcRbDMY52Hgksve3GGT+7qHms', NULL),
-(13, 'jemesensmalsicamarche', 'meryl', 'amanda@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$ZmN1YjRCZXgyWWVwV3ZyUw$gp6cohQWfNLs4aG6DEXs3gtGUsrCn9ickJpQjuR4PdE', NULL),
-(14, 'aaa', 'AMANDA', 'aaaaa', '$argon2i$v=19$m=1024,t=2,p=2$NHlET0xISHhyamd3QlI0NQ$Py+uOjtuS8/na+Ik7RBEHOmd4h8+tr/HJe0ZscTE/pA', NULL),
-(15, 'ii', 'ii', 'ii', '$argon2i$v=19$m=1024,t=2,p=2$TEdFaVpOTU9RdkNyL3lvdw$XqXWunEL57ok8sX26VbYDz2VEmJD8YKc7mMYNIYj240', NULL),
-(16, 'Elfassy', 'Amanda', 'amanda.elfassy@outlook.fr', '$argon2i$v=19$m=1024,t=2,p=2$bUhDTHFJVDUvZWNuWmthUQ$WOabDs0pdK+Dbd2Nda0WyKT25EhLX7RyYQzXtX+cQvI', NULL),
-(17, 'aa', 'aa', 'aa', '$argon2i$v=19$m=1024,t=2,p=2$YmxkTHdDcFFITGJWWFY0MQ$Cn8jg75RUJR+Ex2+nhH+nN9Zl3vMYJc51laiWPCaJuY', NULL),
-(18, 'ss', 'ss', 'ss', '$argon2i$v=19$m=1024,t=2,p=2$VGd1YUZYd21FUmxGQ2FtYg$nLJ4KsO8uLZf3KuK+m13qioSdH4mWe8R37ZNDKmrFwo', NULL),
-(19, 'ok', 'ook', 'oko', '$argon2i$v=19$m=1024,t=2,p=2$d1pyVnZhM3ZSZk83a3RxQg$0QmMYNAqOWQFhcoB02xtTLMixtNp4btLT/9anFnXN64', NULL),
-(20, 'okay', 'okay', 'okay', '$argon2i$v=19$m=1024,t=2,p=2$YkppdDBZcWw0Y0ZSWXFCMA$RZWO2i3Gl9T2W6uBjDhEg9pXjXYJlfa0jiAsPIFvIwg', NULL),
-(21, 'Elfassy', 'meryl', 'meryl.elfassy@outlook.fr', '$argon2i$v=19$m=1024,t=2,p=2$UGU1YXkxVDRkM1F2MW8vbQ$14eFLtMxvsR7+VSyl6yqFMRQOUfe6EcjB1+ibnwY0V0', NULL),
-(22, 'Klark', 'Amanda', 'amanda.elfassy@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$d2RoT0M4Q2pyQ2FjM1Bpaw$a2r3ZgyE45vn1+zmYkk2jisW9pGy9383GEI5AG/2rDE', NULL),
-(23, 'zz', 'zz', 'zz', '$argon2i$v=19$m=1024,t=2,p=2$T3BkNHBVQVU3RzVSOU43cQ$Sw8QGTRglUdnU0kKH0/oiIr7yfASvuxT/d4PSi/8Nk4', NULL);
+(21, 'dupondt', 'jacques', 'meryl.elfassy@outlook.fr', '$argon2i$v=19$m=1024,t=2,p=2$UGU1YXkxVDRkM1F2MW8vbQ$14eFLtMxvsR7+VSyl6yqFMRQOUfe6EcjB1+ibnwY0V0', 1),
+(30, 'ELFASSY', 'Amanda', 'essayons', '$argon2i$v=19$m=1024,t=2,p=2$MzRiWlV6bUdraFJFWjN1Sg$5zDqvFejbZ4dX7Krj+N9yk+kZpDY4cTZS6Aw7vMBxwg', 0),
+(39, 'zz', 'zz', 'zz', '$argon2i$v=19$m=1024,t=2,p=2$a2FxZzc3eURodjB1YUdpOQ$m4B3xcNGCANQWQbs31lr8OuLbowwoAsq+dCxMp5izuc', 0),
+(47, 'Elfassy', 'Amanda', 'amanda.elfassy@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$US9hOEpYSXgxc01XWld3Qg$7vxM8w1Ho+d6DN0oNo9dCPPPphcfZYUOkaiCk9ncfRk', 0),
+(48, 'okay', 'okay', 'okay', '$argon2i$v=19$m=1024,t=2,p=2$ZFYzL0s5UTFxTE1PcktXbg$wdco+G+b4s3yjQjH6N6egs8OMQYw/Su1YxtZYpWU36M', 0),
+(49, 'Elfassy', 'Amanda', 'amanda.elfassy@outlook.fr', 'amandaa', 0),
+(50, 'aa', 'aa', 'aa', '$2y$10$XnaUwkBFQj6cJRhIcBvdcuHRP0y5nwcJpZ1mC8vXwvHLU5xp2zOWW', 1),
+(51, 'Elfassy', 'Meryl', 'meryl.elfassy@hotmail.fr', '$argon2i$v=19$m=1024,t=2,p=2$cUFPSDZGZmZ3N2MuQU90Qw$M0mNDHplf4dbq44ouhBGwGSWecoBySuylvukM4S0e0k', 0),
+(52, 'maximus', 'maximus', 'maximus', '$argon2i$v=19$m=1024,t=2,p=2$Q2tXTmI4N2lLTGhWT2ZrMA$/pK60zc7NchQzhpH3Mx25ZlrUbefPdWT14Y86vBvQqw', 0),
+(53, 'test', 'test', 'test', '$argon2i$v=19$m=1024,t=2,p=2$Y0YyY3FmOHl5TEJGQnZXZA$aZF/CiTTnRORBXHjkUNXZL3fZ7mFFOsEVMpbLoXRqis', 0),
+(54, 'user', 'user', 'user', '$argon2i$v=19$m=1024,t=2,p=2$aWRPUTcyOGpwMDlMLlkzdg$CnK5BoJRf+fT8Ylb1UH9F2vzUUjyITCNQZNd1BCFWDI', 0);
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `image`
+-- Contraintes pour la table `images`
 --
-ALTER TABLE `image`
+ALTER TABLE `images`
   ADD CONSTRAINT `productsimage_id` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `order_products`
---
-ALTER TABLE `order_products`
-  ADD CONSTRAINT `orders_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `products`

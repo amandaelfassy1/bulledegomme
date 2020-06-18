@@ -15,10 +15,9 @@
                  </h5>
                  <h3><?= $selectedProduct['name']; ?></h3>
                  <div class="information"><?= $selectedProduct['description']; ?></div>
-                 <div class="">
-                         <span class="price"><?= $selectedProduct['price']; ?> €</span>
-
-                         <form method="post" action="index.php?page=cart&action=ajouterPanier&product_id=<?= $selectedProduct['id']; ?>">
+                 <div>
+                     <div class="price"><?= $selectedProduct['price']; ?> €</div>
+                     <form method="post" action="index.php?page=cart&action=ajouterPanier&product_id=<?= $selectedProduct['id']; ?>">
                              <select name="quantity" id="quantity">
                                  <?php for($i =1; $i<=$selectedProduct['quantity']; $i++):  ?>
                                  <option value="<?= $i ?>"><?= $i ?></option>
