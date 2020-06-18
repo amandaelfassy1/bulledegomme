@@ -32,12 +32,14 @@ function deleteUser($id)
 function addUser($informations){
 
     $db= dbConnect();
-    $query = $db->prepare("INSERT INTO users (last_name, first_name, email, password) VALUES( :last_name, :first_name, :email, :password)");
+    $query = $db->prepare("INSERT INTO users (last_name, first_name, email, password, is_admin) VALUES( :last_name, :first_name, :email, :password, :is_admin)");
     $result = $query->execute([
         'last_name' => $informations["last_name"],
         'first_name' => $informations["first_name"],
         'email' => $informations["email"],
-        'password' => password_hash($informations["password"], PASSWORD_DEFAULT)
+        'password' => password_hash($informations["password"], PASSWORD_DEFAULT),
+        'is_admin' => $informations["is_admin"]
+
     ]);
     if($result && isset($_FILES['image']['tmp_name'])){
         $albumId = $db->lastInsertId();
@@ -57,12 +59,13 @@ function addUser($informations){
 function updateUser($id, $informations){
 
     $db= dbConnect();
-    $query = $db->prepare("UPDATE users SET last_name=?, first_name=?, email=?, password=? WHERE id =?");
+    $query = $db->prepare("UPDATE users SET last_name=?, first_name=?, email=?, password=?, is_admin=? WHERE id =?");
     $result = $query->execute([
         $informations["last_name"],
         $informations["first_name"],
         $informations["email"],
-        $informations["password"],
+        password_hash($informations["password"], PASSWORD_DEFAULT),
+        $informations["is_admin"],
         $id,
     ]);
     return $result;

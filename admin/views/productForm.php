@@ -62,9 +62,7 @@
                     <label for="price">Prix :</label>
                 </div>
                 <div class="col-75">
-                    <textarea name="price" id="price"><?= isset($_SESSION[
-                            'old_inputs']) ? $_SESSION['old_inputs']['price'] : '' ?><?= isset($product) ? $product['price']:''?>
-                    </textarea>
+                    <textarea name="price" id="price"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['price'] : '' ?><?= isset($product) ? $product['price']:''?></textarea>
                 </div>
             </div>
             <div class="row">
@@ -72,9 +70,7 @@
                     <label for="quantity">Quantité :</label>
                 </div>
                 <div class="col-75">
-                    <textarea name="quantity" id="quantity"><?= isset($_SESSION[
-                            'old_inputs']) ? $_SESSION['old_inputs']['quantity'] : '' ?><?= isset($product) ? $product['quantity']:''?>
-                    </textarea>
+                    <textarea name="quantity" id="quantity"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['quantity'] : '' ?><?= isset($product) ? $product['quantity']:''?></textarea>
                 </div>
             </div>
             <div class="row">

@@ -35,9 +35,6 @@ if(isset($_POST['forminscription'])){
             if($resultAdd){
                 $_SESSION['flash']['success']  = 'vous etes enregistré !';
             }
-            else{
-                $_SESSION['flash']['error'] =  "Erreur lors de l'enregistrement... :(";
-            }
 
             header('Location:index.php?page=sign');
             exit;

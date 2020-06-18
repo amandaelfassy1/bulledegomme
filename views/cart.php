@@ -29,7 +29,6 @@
                     <td><?= $_SESSION['cart'][$product['id']] * $product['price']?></td>
                     <td><a class="suppr" href="index.php?page=cart&action=retirerPanier&product_id=<?= $product['id']; ?>"><i class="fa fa-times"></i></a></td>
                 </tr>
-
             <?php endforeach; ?>
         </table>
         <div class="payement">

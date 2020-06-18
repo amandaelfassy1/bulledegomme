@@ -20,7 +20,7 @@
             </ul>
             <a href="index.php?page=cart&action=list"><i class="fas fa-shopping-bag"></i></a>
 
-            <a href="#" class="cross"><img src="assets/images/picto-croix.png" alt="Une croix"></a>
+            <a href="" class="cross"><img src="assets/images/picto-croix.png" alt="Une croix"></a>
         </div>
         <div>
             <a><img src="assets/images/picto-burger.svg" alt="Un burger"></a>

@@ -65,6 +65,7 @@ input[type=password], select, textarea{
     resize: vertical;
 }
 
+
 /* Style the label to display next to the inputs */
 label {
     padding: 12px 12px 12px 0;

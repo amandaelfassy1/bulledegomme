@@ -10,7 +10,6 @@
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-
 <div class="container">
     <h2>Utilisateur </h2>
     <form action="index.php?controller=users&action=<?= isset($user) || (isset($_SESSION['old_inputs']) && $_GET['action'] == 'edit') ? 'edit&id='. $_GET['id'] : 'add' ?>" method="post" enctype="multipart/form-data">
@@ -38,7 +37,7 @@
             </div>
             <div class="col-75">
                 <input  type="text" name="email" id="first_name" value="<?= isset($_SESSION[
-                    'old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($user) ? $user['email']:''?>"
+                    'old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($user) ? $user['email']:''?>">
             </div>
         </div>
         <div class="row">
@@ -46,8 +45,19 @@
                 <label for="password">Mot de passe :</label>
             </div>
             <div class="col-75">
-                <input  type="password" name="password" id="password" value="">
+                <input  type="password" name="password" id="password" autocomplete="off" value="<?= isset($_SESSION[
+                    'old_inputs']) ? $_SESSION['old_inputs']['password'] : '' ?><?= isset($user) ? $user['password']:''?>">
             </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="is_admin">Admin ? </label>
+            </div>
+        <div class="col-75">
+            <select name="is_admin" id ="is_admin">
+                   <option value="0"<?php if(isset($_SESSION['old_inputs']) && $_SESSION['old_inputs']['is_admin'] == 0): ?>selected="selected"<?php endif;?>>Non</option>
+                   <option value="1"<?php if(isset($_SESSION['old_inputs']) && $_SESSION['old_inputs']['is_admin'] == 1 ): ?>selected="selected"<?php endif;?>>Oui</option>
+            </select>
         </div>
         <div class="row">
             <input type="submit" value="Enregistrer">
