@@ -9,20 +9,26 @@ function getAllOrders()
     return $orders;
 }
 
-function getOrder($id)
+
+
+function getOrderAndUserInformation($order_id)
 {
-        $db = dbConnect();
-        $query = $db->prepare('SELECT name, price, quantity FROM order_products WHERE order_id = ?');
-        $query->execute([$id]);
-        $result = $query->fetchAll();
-        return $result;
+    // query 1
+    $db = dbConnect();
+    $query = $db->prepare('SELECT orders.id, orders.date, orders.delivery_address, users.first_name, users.last_name, users.email
+FROM orders 
+JOIN users ON orders.user_id = users.id
+WHERE orders.id= :order_id');
+    $query->execute(['order_id' => $order_id]);
+    $result = $query->fetch();
+    return $result;
 }
 
-function getInformationsUser($order_id)
-{
+
+function getOrderProducts ($order_id) {
     $db = dbConnect();
-    $query = $db->prepare('SELECT user_name, user_lastname, delivery_address FROM orders WHERE orders.id=?');
-    $query->execute([$order_id]);
+    $query = $db->prepare('SELECT * FROM order_products WHERE order_products.order_id = :order_id');
+    $query->execute(['order_id' => $order_id]);
     $result = $query->fetchAll();
     return $result;
 }

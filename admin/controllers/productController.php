@@ -43,25 +43,25 @@ elseif($_GET['action'] == 'add'){
 
 elseif($_GET['action'] == 'edit'){
 
-    if(!empty($_POST))
+    if(!empty($_POST)) {
+        $errors = [];
+        if(empty($_POST['name'])){
+            $errors[] = 'Le champ nom est obligatoire !';
+        }
+        if(empty($_POST['quantity'])){
+            $errors[] = 'Le champ quantity est obligatoire !';
+        }
+        if(empty($_POST['price'])){
+            $errors[] = 'Le champ price est obligatoire !';
+        }
 
-        if(empty($_POST['name']) || empty($_POST['quantity'] || empty($_POST['price']))){
-
-            if(empty($_POST['name'])){
-                $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
-            }
-            if(empty($_POST['quantity'])){
-                $_SESSION['flash']['error'] = 'Le champ quantity est obligatoire !';
-            }
-            if(empty($_POST['price'])){
-                $_SESSION['flash']['error'] = 'Le champ price est obligatoire !';
-            }
+        if(!empty($errors)) {
+            $_SESSION['flash']['error'] = implode("<br>", $errors);
 
             $_SESSION['old_inputs'] = $_POST;
             header('Location:index.php?controller=products&action=edit&id='.$_GET['id']);
             exit;
-        }
-        else{
+        } else {
 
             $result = updateProduct($_GET['id'], $_POST);
 
@@ -74,7 +74,7 @@ elseif($_GET['action'] == 'edit'){
             header('Location:index.php?controller=products&action=list');
             exit;
         }
-    else{
+    } else {
         if(!isset($_SESSION['old_inputs'])){
             $product = getProduct($_GET['id']);
         }

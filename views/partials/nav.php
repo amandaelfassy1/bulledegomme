@@ -1,5 +1,6 @@
 <body>
 <header>
+    <div class="burger"></div>
     <input type="checkbox" class="trigger">
     <nav>
         <div class="logo">
@@ -30,7 +31,7 @@
             <a href="" class="cross"><img src="assets/images/picto-croix.png" alt="Une croix"></a>
         </div>
         <div>
-            <a><img src="assets/images/picto-burger.svg" alt="Un burger"></a>
+            <a></a>
         </div>
 
     </nav>

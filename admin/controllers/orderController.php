@@ -8,8 +8,8 @@ if($_GET['action'] == 'list'){
 
 elseif($_GET['action'] == 'details'){
 
-    $orders= getInformationsUser($_GET['id']);
-    $order_details = getOrder($_GET['id']);
+    $order_user_info = getOrderAndUserInformation($_GET['id']);
+    $order_details = getOrderProducts($_GET['id']);
     require('views/orderDetail.php');
 }
 

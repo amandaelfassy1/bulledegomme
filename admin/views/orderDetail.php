@@ -19,13 +19,11 @@
             <th>Prenom</th>
             <th>Adresse</th>
         </tr>
-        <?php foreach($orders as $order): ?>
-            <tr>
-                <th><?=  htmlspecialchars($order['user_name']) ?></th>
-                <th><?= htmlspecialchars($order['user_lastname']) ?></th>
-                <th><?= htmlspecialchars($order['delivery_address']) ?></th>
-            </tr>
-        <?php endforeach; ?>
+        <tr>
+            <th><?=  htmlspecialchars($order_user_info['first_name']) ?></th>
+            <th><?= htmlspecialchars($order_user_info['last_name']) ?></th>
+            <th><?= htmlspecialchars($order_user_info['delivery_address']) ?></th>
+        </tr>
     </table>
 <br>
     <h2>Details de la commande </h2>

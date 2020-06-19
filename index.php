@@ -46,6 +46,7 @@ if(isset($_GET['page'])){
       case 'update_user' :
           require 'controllers/updateUserController.php';
           break;
+
   	default :
   		require 'controllers/indexController.php';
   }
