@@ -16,10 +16,10 @@ elseif($_GET['action'] == 'add'){
     if(empty($_POST['name']) || empty($_POST['category_id']) || empty($_POST['price'])){
 
         if(empty($_POST['name'])){
-            $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+            $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
         }
         if(empty($_POST['category_id'])){
-            $_SESSION['messages'][] = 'Le champ categorie est obligatoire !';
+            $_SESSION['flash']['error'] = 'Le champ categorie est obligatoire !';
         }
         if(empty($_POST['price'])){
             $_SESSION['flash']['error'] = 'Le champ price est obligatoire !';
@@ -44,24 +44,17 @@ elseif($_GET['action'] == 'add'){
 elseif($_GET['action'] == 'edit'){
 
     if(!empty($_POST)) {
-        $errors = [];
         if(empty($_POST['name'])){
-            $errors[] = 'Le champ nom est obligatoire !';
+            $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
         }
         if(empty($_POST['quantity'])){
-            $errors[] = 'Le champ quantity est obligatoire !';
+            $_SESSION['flash']['error'] = 'Le champ quantity est obligatoire !';
         }
         if(empty($_POST['price'])){
-            $errors[] = 'Le champ price est obligatoire !';
+            $_SESSION['flash']['error']= 'Le champ price est obligatoire !';
         }
 
-        if(!empty($errors)) {
-            $_SESSION['flash']['error'] = implode("<br>", $errors);
-
-            $_SESSION['old_inputs'] = $_POST;
-            header('Location:index.php?controller=products&action=edit&id='.$_GET['id']);
-            exit;
-        } else {
+       else {
 
             $result = updateProduct($_GET['id'], $_POST);
 
