@@ -20,7 +20,7 @@
             </div>
             <div class="col-75">
                 <input  type="text" name="name" id="name" value="<?= isset($_SESSION[
-                    'old_inputs']) ? $_SESSION['old_inputs']['name'] : '' ?><?= isset($category) ? $category['name']:''?>"
+                    'old_inputs']) ? $_SESSION['old_inputs']['name'] : '' ?><?= isset($category) ?htmlspecialchars($category['name']):''?>"
             </div>
         </div>
         <div class="row">

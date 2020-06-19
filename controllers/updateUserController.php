@@ -7,15 +7,17 @@ $categories = getCategories();
 if($_GET['action'] == 'editUser'){
 
     if(!empty($_POST)){
-        var_dump($_SESSION['user']);
 
-        if(empty($_POST['last_name']) || empty($_POST['email'])){
+        if(empty($_POST['last_name']) || empty($_POST['first_name'] || empty($_POST['email']))){
 
             if(empty($_POST['last_name'])){
-                $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+                $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
+            }
+            if(empty($_POST['first_name'])){
+                $_SESSION['flash']['error'] = 'Le champ email est obligatoire !';
             }
             if(empty($_POST['email'])){
-                $_SESSION['messages'][] = 'Le champ email est obligatoire !';
+                $_SESSION['flash']['error'] = 'Le champ email est obligatoire !';
             }
             $_SESSION['old_inputs'] = $_POST;
 
@@ -25,10 +27,10 @@ if($_GET['action'] == 'editUser'){
             $user = updateUser($_GET['id'], $_POST);
 
             if($user){
-                $_SESSION['messages'][] = 'Utilisateur mis à jour !';
+                $_SESSION['flash']['success'] = 'Utilisateur mis à jour !';
             }
             else{
-                $_SESSION['messages'][] = 'Erreur lors de la mise à jour... :(';
+                $_SESSION['flash']['error'] = 'Erreur lors de la mise à jour... :(';
             }
             header('Location:index.php');
             exit;
@@ -42,5 +44,6 @@ if($_GET['action'] == 'editUser'){
         }
 
 }
+
 
 $view = 'views/update_user.php';

@@ -3,8 +3,8 @@
 //appel des données à exploiter
 require_once 'models/Category.php';
 require_once 'models/Order.php';
-require_once 'models/Cart.php';
 require_once 'models/Product.php';
+$pageTitle = 'Commande';
 
 if ($_GET['action'] == 'deliveryInformation') {
 

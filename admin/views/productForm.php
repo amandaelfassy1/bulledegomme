@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-75">
                     <input  type="text" name="name" id="name" value="<?= isset($_SESSION[
-                        'old_inputs']) ? $_SESSION['old_inputs']['name'] : '' ?><?= isset($product) ? $product['name']:''?>"
+                        'old_inputs']) ? $_SESSION['old_inputs']['name'] : '' ?><?= isset($product) ? htmlspecialchars($product['name']):''?>"
                 </div>
             </div>
             <div class="row">
@@ -32,7 +32,7 @@
                         <?php
                         foreach ($categories as $category):?>
                             <option value ="<?= $category['id'];?>"<?php if(isset($product)&& $product['category_id']==
-                            $category['id']):?>selected="selected"<?php endif;?>><?= $category['name'];?></option>
+                            $category['id']):?>selected="selected"<?php endif;?>><?= htmlspecialchars($category['name']);?></option>
                         <?php endforeach;?>
                     </select>
                 </div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-75">
                     <textarea name="description" id="description"><?= isset($_SESSION[
-                    'old_inputs']) ? $_SESSION['old_inputs']['description'] : '' ?><?= isset($product) ? $product['description']:''?>
+                    'old_inputs']) ? $_SESSION['old_inputs']['description'] : '' ?><?= isset($product) ? htmlspecialchars($product['description']):''?>
                     </textarea>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-75">
                     <textarea name="short_description" id="short_description"><?= isset($_SESSION[
-                            'old_inputs']) ? $_SESSION['old_inputs']['short_description'] : '' ?><?= isset($product) ? $product['short_description']:''?>
+                            'old_inputs']) ? $_SESSION['old_inputs']['short_description'] : '' ?><?= isset($product) ?htmlspecialchars($product['short_description']):''?>
                     </textarea>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                     <label for="price">Prix :</label>
                 </div>
                 <div class="col-75">
-                    <textarea name="price" id="price"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['price'] : '' ?><?= isset($product) ? $product['price']:''?></textarea>
+                    <textarea name="price" id="price"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['price'] :'' ?><?= isset($product) ? htmlspecialchars($product['price']):''?></textarea>
                 </div>
             </div>
             <div class="row">
@@ -70,7 +70,7 @@
                     <label for="quantity">Quantité :</label>
                 </div>
                 <div class="col-75">
-                    <textarea name="quantity" id="quantity"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['quantity'] : '' ?><?= isset($product) ? $product['quantity']:''?></textarea>
+                    <textarea name="quantity" id="quantity"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['quantity'] : '' ?><?= isset($product) ? htmlspecialchars($product['quantity']):''?></textarea>
                 </div>
             </div>
             <div class="row">

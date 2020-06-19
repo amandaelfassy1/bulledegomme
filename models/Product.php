@@ -17,7 +17,6 @@ function getProduct($productId)
 	$db = dbConnect();
 	$query = $db->query('SELECT * FROM products WHERE id = ' . $productId);
 	$selectedProduct = $query->fetch();
-
 	return $selectedProduct;
 }
 
@@ -25,7 +24,6 @@ function getProducts()
 {
 
 	$db = dbConnect();
-
 	$query = $db->query('SELECT * FROM products');
 	$products = $query->fetchAll();
 

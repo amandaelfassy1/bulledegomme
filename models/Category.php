@@ -5,9 +5,8 @@
 function getCategories()
 {
 	$db = dbConnect();
-
-	$query = $db->query('SELECT * FROM categories');
+	$query = $db->prepare('SELECT * FROM categories');
+	$query->execute();
 	$categories = $query->fetchAll();
-
 	return $categories;
 }

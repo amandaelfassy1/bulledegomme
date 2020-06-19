@@ -69,8 +69,8 @@
                     </a>
                 </div>
                 <div class="grid-cell">
-                    <a href="index.php?page=product&product_id=39">
-                        <img src="assets/images/Tintin/dupondt.jpg">
+                    <a href="index.php?page=product&product_id=33">
+                        <img src="assets/images/Spirou/Spirou.jpg">
                     </a>
                 </div>
             </div>

@@ -3,7 +3,8 @@
 function getAllProducts()
 {
     $db = dbConnect();
-    $query = $db->query('SELECT * FROM products');
+    $query = $db->prepare('SELECT * FROM products');
+    $query->execute();
     $products =  $query->fetchAll();
     return $products;
 }

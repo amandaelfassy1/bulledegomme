@@ -16,7 +16,7 @@
                  </div>
                  <div class="col-75">
                      <input  type="text" name="last_name" id="last_name" value="<?= isset($_SESSION[
-                         'old_inputs']) ? $_SESSION['old_inputs']['last_name'] : '' ?><?= isset($user) ? $user['last_name']:''?>"
+                         'old_inputs']) ? $_SESSION['old_inputs']['last_name'] : '' ?><?= isset($user) ? htmlspecialchars($user['last_name']):''?>"
                  </div>
              </div>
              <div class="row">
@@ -25,7 +25,7 @@
                  </div>
                  <div class="col-75">
                      <input  type="text" name="first_name" id="first_name" value="<?= isset($_SESSION[
-                         'old_inputs']) ? $_SESSION['old_inputs']['first_name'] : '' ?><?= isset($user) ? $user['first_name']:''?>"
+                         'old_inputs']) ? $_SESSION['old_inputs']['first_name'] : '' ?><?= isset($user) ?htmlspecialchars($user['first_name']):''?>"
                  </div>
              </div>
              <div class="row">
@@ -34,7 +34,7 @@
                  </div>
                  <div class="col-75">
                      <input  type="text" name="email" id="email" value="<?= isset($_SESSION[
-                         'old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($user) ? $user['email']:''?>"
+                         'old_inputs']) ? $_SESSION['old_inputs']['email'] : '' ?><?= isset($user) ? htmlspecialchars($user['email']):''?>"
                  </div>
              </div>
          </form>

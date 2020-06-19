@@ -5,8 +5,10 @@
  </head>
  <body class="index-body">
  <?php if(isset($_SESSION['user'])): ?>
-     Salut <?= $_SESSION['user']['first_name'] ?>
-     <a href="?page=log&action=disconnect">déconnexion</a>
+ <div class="hello">
+     <p>Salut <?= $_SESSION['user']['first_name'] ?>
+         <a href="?page=log&action=disconnect">déconnexion</a></p>
+ </div>
  <?php endif; ?>
 
  <div>

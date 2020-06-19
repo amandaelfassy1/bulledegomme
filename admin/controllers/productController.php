@@ -13,7 +13,7 @@ elseif($_GET['action'] == 'new'){
 }
 elseif($_GET['action'] == 'add'){
 
-    if(empty($_POST['name']) || empty($_POST['category_id'])){
+    if(empty($_POST['name']) || empty($_POST['category_id']) || empty($_POST['price'])){
 
         if(empty($_POST['name'])){
             $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
@@ -21,7 +21,9 @@ elseif($_GET['action'] == 'add'){
         if(empty($_POST['category_id'])){
             $_SESSION['messages'][] = 'Le champ categorie est obligatoire !';
         }
-
+        if(empty($_POST['price'])){
+            $_SESSION['flash']['error'] = 'Le champ price est obligatoire !';
+        }
         $_SESSION['old_inputs'] = $_POST;
         header('Location:index.php?controller=products&action=new');
         exit;
@@ -29,10 +31,10 @@ elseif($_GET['action'] == 'add'){
     else{
         $resultAdd = addProduct($_POST);
         if($resultAdd){
-            $_SESSION['messages'][] = 'Produit enregistré !';
+            $_SESSION['flash']['success'] = 'Produit enregistré !';
         }
         else{
-            $_SESSION['messages'][] = "Erreur lors de l'enregistreent du produit... :(";
+            $_SESSION['flash']['error'] = "Erreur lors de l'enregistrement du produit... :(";
         }
         header('Location:index.php?controller=products&action=list');
         exit;
@@ -43,13 +45,16 @@ elseif($_GET['action'] == 'edit'){
 
     if(!empty($_POST))
 
-        if(empty($_POST['name']) || empty($_POST['quantity'])){
+        if(empty($_POST['name']) || empty($_POST['quantity'] || empty($_POST['price']))){
 
             if(empty($_POST['name'])){
-                $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+                $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
             }
             if(empty($_POST['quantity'])){
-                $_SESSION['messages'][] = 'Le champ quantity est obligatoire !';
+                $_SESSION['flash']['error'] = 'Le champ quantity est obligatoire !';
+            }
+            if(empty($_POST['price'])){
+                $_SESSION['flash']['error'] = 'Le champ price est obligatoire !';
             }
 
             $_SESSION['old_inputs'] = $_POST;

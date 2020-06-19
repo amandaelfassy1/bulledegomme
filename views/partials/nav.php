@@ -4,6 +4,13 @@
     <nav>
         <div class="logo">
         <a href="index.php"><h3>BULLE <span>DEGOMME</span></h3></a>
+            <?php
+
+            if (isset($_SESSION['user']) && $_SESSION['user']['is_admin']==1)
+            {
+                echo '<a href="admin" >ADMIN</a>';
+            }
+            ?>
         </div>
         <div>
             <?php foreach($categories as $category): ?>
@@ -25,14 +32,9 @@
         <div>
             <a><img src="assets/images/picto-burger.svg" alt="Un burger"></a>
         </div>
-    </nav>
-    <?php
 
-    if (isset($_SESSION['user']) && $_SESSION['user']['is_admin']==1)
-    {
-        echo '<li><a href="admin" >Admin</a></li>';
-    }
-    ?>
+    </nav>
+
 </header>
 <script>
     const header = document.querySelector('header')

@@ -8,8 +8,6 @@ require_once 'models/Product.php';
 //postulat de base : aucune catégorie n'a été séléctionnée
 $selectedCategory = false;
 
-
-
 $categories = getCategories();
 
 //si ID de catégorie demandé

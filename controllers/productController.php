@@ -27,6 +27,8 @@ if($selectedProduct == false ){
     header('Location:index.php');
     exit;
 }
+
+
 $categories = getCategories();
 
 //appel de la vue correspondante

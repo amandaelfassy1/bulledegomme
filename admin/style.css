@@ -12,13 +12,11 @@ body{
 .flash.success {
     background-color: darkseagreen;
     color: white;
-    width: 100%;
 }
 
 .flash.error {
     background-color: indianred;
     color: white;
-    width: 100%;
 }
 /*******************************/
 h1{
@@ -36,6 +34,7 @@ header h1 {
     line-height: 45px;
     color: black;
 }
+
 .suppr{
     color: red;
 }
@@ -151,6 +150,14 @@ input[type=submit] {
     font-weight: bold;
     font-size: 16px;
 }
+
+@media screen and (max-width: 800px) {
+    .link-container {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
@@ -159,12 +166,10 @@ input[type=submit] {
     }
 }
 
-
 a{
     text-decoration:none;
     color: darkslateblue;
 }
-
 
 table {
     border-collapse: collapse;

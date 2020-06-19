@@ -3,7 +3,8 @@
 function getAllOrders()
 {
     $db = dbConnect();
-    $query = $db->query('SELECT orders.id,  first_name,  last_name FROM orders,  users WHERE orders.user_id=users.id');
+    $query = $db->prepare('SELECT orders.id,  first_name,  last_name FROM orders,  users WHERE orders.user_id=users.id');
+    $query->execute();
     $orders =  $query->fetchAll();
     return $orders;
 }

@@ -21,9 +21,9 @@
         </tr>
         <?php foreach($orders as $order): ?>
             <tr>
-                <th><?=  $order['user_name'] ?></th>
-                <th><?=  $order['user_lastname'] ?></th>
-                <th><?=  $order['delivery_address'] ?></th>
+                <th><?=  htmlspecialchars($order['user_name']) ?></th>
+                <th><?= htmlspecialchars($order['user_lastname']) ?></th>
+                <th><?= htmlspecialchars($order['delivery_address']) ?></th>
             </tr>
         <?php endforeach; ?>
     </table>
@@ -40,10 +40,10 @@
         <?php foreach($order_details as $order_detail): ?>
 
         <tr>
-            <th><?=  $order_detail['name'] ?></th>
-            <th><?=  $order_detail['price'] ?></th>
-            <th><?=  $order_detail['quantity'] ?></th>
-            <th><?=  $order_detail['quantity'] * $order_detail['price'] ?></th>
+            <th><?= htmlspecialchars($order_detail['name']) ?></th>
+            <th><?= htmlspecialchars($order_detail['price']) ?></th>
+            <th><?= htmlspecialchars($order_detail['quantity']) ?></th>
+            <th><?= htmlspecialchars($order_detail['quantity'] * $order_detail['price']) ?></th>
         </tr>
         <?php endforeach; ?>
 

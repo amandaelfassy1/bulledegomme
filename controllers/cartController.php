@@ -1,7 +1,6 @@
 <?php
 require_once 'models/Category.php';
 require_once 'models/Product.php';
-require_once 'models/Cart.php';
 $categories = getCategories();
 $pageTitle= 'Panier';
 
@@ -12,10 +11,11 @@ if ($_GET['action'] == 'ajouterPanier') {
         $_SESSION['flash']['error'] = 'Veuillez saisir une quantité valide';
         header('Location:index.php');
     }
-
-    $_SESSION['cart'][$_GET['product_id']] = $quantity;
-    header('Location:index.php?page=cart&action=list');
-    exit();
+    else{
+        $_SESSION['cart'][$_GET['product_id']] = $quantity;
+        header('Location:index.php?page=cart&action=list');
+        exit();
+    }
 
 }
 if ($_GET['action'] == 'list') {

@@ -15,9 +15,8 @@ elseif($_GET['action'] == 'add'){
     if(empty($_POST['name']) ){
 
         if(empty($_POST['name'])){
-            $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+            $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
         }
-
         $_SESSION['old_inputs'] = $_POST;
         header('Location:index.php?controller=categories&action=new');
         exit;
@@ -25,10 +24,10 @@ elseif($_GET['action'] == 'add'){
     else{
         $resultAdd = addCategory($_POST);
         if($resultAdd){
-            $_SESSION['messages'][] = 'Categorie enregistrée !';
+            $_SESSION['flash']['success'] = 'Categorie enregistrée !';
         }
         else{
-            $_SESSION['messages'][] = "Erreur lors de l'enregistreent de la categorie... :(";
+            $_SESSION['flash']['error'] = "Erreur lors de l'enregistrement de la categorie... :(";
         }
         header('Location:index.php?controller=categories&action=list');
         exit;
