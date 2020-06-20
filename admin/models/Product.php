@@ -102,5 +102,9 @@ function updateProduct($id, $informations){
         $informations["quantity"],
         $id
     ]);
+
+
+
+
     return $result;
 }
