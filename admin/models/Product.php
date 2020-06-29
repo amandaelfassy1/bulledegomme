@@ -33,10 +33,10 @@ function deleteProduct($product_id)
     try {
         $images = getImages($product_id);
         foreach($images as $image) {
-            unlink(dirname(__DIR__) . '/../assets/images/'.$image['name']);
+            unlink('../assets/images/'.$image['name']);
         }
         $product = getProduct($product_id);
-        unlink(dirname(__DIR__) . '/../assets/images/'.$product['images']);
+        unlink('/../assets/images/'.$product['images']);
 
     } catch (Exception $e) {
         var_dump($e->getMessage());

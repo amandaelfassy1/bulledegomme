@@ -1,5 +1,4 @@
 <?php
-
 //appel des données à exploiter
 require_once 'models/Category.php';
 require_once 'models/Order.php';
@@ -13,13 +12,14 @@ if ($_GET['action'] == 'confirmOrder') {
             $products = [];
             foreach ($_SESSION['cart'] as $productId => $quantity ){
                 $products[] = getProduct($productId);
-
             }
 
         }
     }
 
+
 }
+
 
 
 $categories = getCategories();

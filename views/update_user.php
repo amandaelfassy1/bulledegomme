@@ -6,7 +6,7 @@
  <body class="index-body">
  <div class="container-fluid">
      <hr>
-         <h1>Modifiez votre profile !</h1>
+         <h1>Modifiez votre profil !</h1>
          <hr>
      <div class="form">
          <form method="post" action="index.php?page=update_user&action=editUser&id=<?= $_SESSION['user']['id']; ?>">

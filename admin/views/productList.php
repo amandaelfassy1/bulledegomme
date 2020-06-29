@@ -21,8 +21,8 @@
                     <?php foreach($products as $product): ?>
                     <th><?=  $product['id']?></th>
                     <th><?=  htmlspecialchars($product['name']) ?></th>
-                    <th><a class="suppr" href="index.php?controller=products&action=delete&id=<?= $product['id'] ?>"> supprimer</a></th>
-                    <th><a class="modif" href="index.php?controller=products&action=edit&id=<?= $product['id'] ?>">modifier</a></th>
+                    <th><a class="modif" href="index.php?controller=products&action=edit&id=<?= $product['id'] ?>">Modifier</a></th>
+                    <th><a class="suppr" href="index.php?controller=products&action=delete&id=<?= $product['id'] ?>"> Supprimer</a></th>
                 </tr>
             <?php endforeach; ?>
         </table>

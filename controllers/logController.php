@@ -5,6 +5,7 @@ require_once 'models/User.php';
 $pageTitle = 'connecte toi';
 $categories = getCategories();
 
+
 if(isset($_GET['action']) && $_GET['action'] == 'disconnect'){
     unset($_SESSION['user']);
     unset($_SESSION['cart']);

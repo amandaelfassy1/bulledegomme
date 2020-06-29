@@ -41,7 +41,7 @@ elseif($_GET['action'] == 'edit'){
         if(empty($_POST['name']) ){
 
             if(empty($_POST['name'])){
-                $_SESSION['messages'][] = 'Le champ nom est obligatoire !';
+                $_SESSION['flash']['error'] = 'Le champ nom est obligatoire !';
             }
 
             $_SESSION['old_inputs'] = $_POST;

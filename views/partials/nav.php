@@ -21,8 +21,13 @@
                 <li><i class="fas fa-user-circle"></i>
                     <ul>
                         <li><a href="index.php?page=sign">Se connecter </a></li>
-                        <li><a href="index.php?page=profile">Mon profil </a></li>
-                        <li><a href="?page=log&action=disconnect">déconnexion</a></li>
+                        <?php
+                        if (isset($_SESSION['user']))
+                        {
+                            echo '<li><a href="index.php?page=profile">Mon profil </a></li>';
+                            echo ' <li><a href="?page=log&action=disconnect">déconnexion</a></li>';
+                        }
+                        ?>
                     </ul>
                 </li>
             </ul>

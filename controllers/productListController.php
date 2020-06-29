@@ -1,5 +1,4 @@
 <?php
-
 //appel des données à exploiter
 require_once 'models/Category.php';
 require_once 'models/Product.php';
@@ -38,8 +37,6 @@ else{
   $products = getProducts();
     $pageTitle = 'Tous les produits';
 }
-
-
 
 //appel de la vue correspondante
 $view = 'views/product_list.php';

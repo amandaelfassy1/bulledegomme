@@ -20,8 +20,8 @@
                 <tr>
                     <th><?=  $category['id'] ?> </th>
                     <th><?=  htmlspecialchars($category['name']) ?> </th>
-                    <th><a class="suppr" href="index.php?controller=categories&action=delete&id=<?= $category['id'] ?>"> Supprimer</a></th>
                     <th><a class="modif" href="index.php?controller=categories&action=edit&id=<?= $category['id'] ?>"> Modifier</a></th>
+                    <th><a class="suppr" href="index.php?controller=categories&action=delete&id=<?= $category['id'] ?>"> Supprimer</a></th>
                 </tr>
             <?php endforeach; ?>
         </table>

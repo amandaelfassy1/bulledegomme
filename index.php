@@ -6,10 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
     }
 }
 
-// définition des constantes
-
-define('MAX_QUANTIY', 10);
-
 require('helpers.php');
 //routeur du site
 //appel un controleur selon la valeur de $_GET['page'] (la page demandée)
@@ -45,6 +41,9 @@ if(isset($_GET['page'])){
           break;
       case 'update_user' :
           require 'controllers/updateUserController.php';
+          break;
+      case 'orderdetail' :
+          require 'controllers/detailController.php';
           break;
 
   	default :

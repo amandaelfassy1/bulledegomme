@@ -16,9 +16,9 @@
             <?php foreach($products as $product): ?>
                 <tr>
                     <td><img src="./assets/images/<?= $product['image'] ?>"></td>
-                    <td><?= $product['price'] ?></td>
+                    <td><?= $product['price'] ?>€</td>
                     <td><?= $_SESSION['cart'][$product['id']] ?></td>
-                    <td><?= $_SESSION['cart'][$product['id']] * $product['price']?></td>
+                    <td><?= $_SESSION['cart'][$product['id']] * $product['price']?>€</td>
                 </tr>
             <?php endforeach; ?>
         </table>

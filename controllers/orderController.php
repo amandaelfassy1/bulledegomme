@@ -15,6 +15,7 @@ if ($_GET['action'] == 'deliveryInformation') {
 
 }
 
+
 if($_GET['action'] == 'newOrder') {
 
 
@@ -31,6 +32,7 @@ if($_GET['action'] == 'newOrder') {
     }
 
 }
+
 
 
 $categories = getCategories();
